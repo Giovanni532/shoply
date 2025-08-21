@@ -1,28 +1,24 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { paths } from '@/paths';
+// middleware.ts
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { getSessionCookie } from "better-auth/cookies";
+import { paths } from "./paths";
 
-// Routes d'API qui ne nécessitent pas d'authentification
-const publicApiRoutes = ['/api/auth'];
+export function middleware(req: NextRequest) {
+    // Vérifie simplement l'existence du cookie de session (pas une validation complète)
+    const sessionCookie = getSessionCookie(req);
 
-
-export async function middleware(request: NextRequest) {
-    const { pathname } = request.nextUrl;
-
-    // Permettre l'accès aux routes d'API publiques
-    if (publicApiRoutes.some(route => pathname.startsWith(route))) {
-        return NextResponse.next();
+    // Si pas loggé -> redirige vers /login?from=/account/...
+    if (!sessionCookie) {
+        const loginUrl = new URL(paths.auth.login, req.url);
+        loginUrl.searchParams.set("from", req.nextUrl.pathname + req.nextUrl.search);
+        return NextResponse.redirect(loginUrl);
     }
 
+    return NextResponse.next();
 }
 
+// Le middleware ne tourne que sur /account/*
 export const config = {
-    matcher: [
-        /*
-         * Match all request paths except for the ones starting with:
-         * - _next/static (static files)
-         * - _next/image (image optimization files)
-         * - favicon.ico (favicon file)
-         */
-        '/((?!_next/static|_next/image|favicon.ico).*)',
-    ],
-}; 
+    matcher: ["/account/:path*"],
+};

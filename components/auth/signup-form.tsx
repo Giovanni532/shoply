@@ -282,7 +282,7 @@ export function SignupForm() {
                     router.refresh();
                 },
                 onError: (ctx) => {
-                    toast.error(ctx.error.message || "Erreur lors de l'inscription");
+                    toast.error("Erreur lors de l'inscription");
                     setIsLoading(false);
                 },
             });
@@ -578,7 +578,7 @@ export function SignupForm() {
                         >
                             <span className="text-muted-foreground">Déjà un compte ? </span>
                             <Link
-                                href={paths.login}
+                                href={paths.auth.login}
                                 className="text-primary hover:underline font-medium transition-colors duration-200"
                             >
                                 Se connecter

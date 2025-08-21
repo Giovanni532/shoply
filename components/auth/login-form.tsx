@@ -12,6 +12,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
 import { paths } from "@/paths";
+import Link from "next/link";
 
 // Icônes pour les réseaux sociaux
 const GoogleIcon = () => (
@@ -178,13 +179,13 @@ export function LoginForm() {
                     router.refresh();
                 },
                 onError: (ctx) => {
-                    toast.error(ctx.error.message || "Erreur lors de la connexion");
+                    toast.error("Erreur lors de la connexion");
                     setIsLoading(false);
                 },
             });
 
             if (error) {
-                toast.error(error.message || "Erreur lors de la connexion");
+                toast.error("Erreur lors de la connexion");
             }
         } catch (error) {
             toast.error("Une erreur est survenue");
@@ -351,6 +352,18 @@ export function LoginForm() {
                                     <FacebookIcon />
                                 </Button>
                             </motion.div>
+                        </motion.div>
+                        <motion.div
+                            variants={itemVariants}
+                            className="text-center text-sm"
+                        >
+                            <span className="text-muted-foreground">Vous n'avez pas de compte ? </span>
+                            <Link
+                                href={paths.auth.signup}
+                                className="text-primary hover:underline font-medium transition-colors duration-200"
+                            >
+                                Créer un compte
+                            </Link>
                         </motion.div>
                     </CardFooter>
                 </form>

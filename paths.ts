@@ -1,5 +1,33 @@
 export const paths = {
     home: "/",
-    login: "/login",
-    signup: "/signup",
+    auth: {
+        login: "/login",
+        signup: "/signup",
+    },
+    // Produits
+    products: {
+        list: "/products", // page liste des produits
+        details: (id: string) => `/products/${id}`, // page détail produit
+    },
+
+    // Panier & Paiement
+    cart: "/cart",
+    checkout: "/checkout",
+    success: "/checkout/success", // après paiement réussi
+    cancel: "/checkout/cancel",   // si paiement annulé
+
+    // Espace utilisateur
+    account: {
+        profile: "/account/profile",
+        orders: "/account/orders",      // historique de commandes
+        settings: "/account/settings",  // infos personnelles
+    },
+
+    // Informations légales (souvent obligatoires en ecommerce)
+    legal: {
+        about: "/about",
+        contact: "/contact",
+        terms: "/terms",   // CGV
+        privacy: "/privacy", // politique de confidentialité
+    },
 }
