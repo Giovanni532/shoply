@@ -69,6 +69,21 @@
     "empty": "Your cart is empty",
     "subtotal": "Subtotal",
     "checkout": "Checkout"
+  },
+  "home": {
+    "features": {
+      "title": "Why choose Shoply?",
+      "fastShipping": { "title": "Fast shipping", "desc": "Ships in 24-48h" },
+      "securePayment": { "title": "Secure payment", "desc": "Encryption and 3D Secure" },
+      "easyReturns": { "title": "Easy returns", "desc": "30 days to change your mind" },
+      "installments": { "title": "Pay in installments", "desc": "Up to 4x, no fees" }
+    },
+    "cta": {
+      "title": "Ready to discover our best deals?",
+      "subtitle": "Quality products at the best price, curated for you.",
+      "primary": "Browse products",
+      "secondary": "Learn more"
+    }
   }
 }
 

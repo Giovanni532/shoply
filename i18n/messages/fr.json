@@ -69,5 +69,20 @@
     "empty": "Votre panier est vide",
     "subtotal": "Sous-total",
     "checkout": "Passer au paiement"
+  },
+  "home": {
+    "features": {
+      "title": "Pourquoi choisir Shoply ?",
+      "fastShipping": { "title": "Livraison rapide", "desc": "Expédié en 24-48h" },
+      "securePayment": { "title": "Paiement sécurisé", "desc": "Cryptage et 3D Secure" },
+      "easyReturns": { "title": "Retours faciles", "desc": "30 jours pour changer d'avis" },
+      "installments": { "title": "Paiement en plusieurs fois", "desc": "Jusqu'à 4x sans frais" }
+    },
+    "cta": {
+      "title": "Prêt à découvrir nos meilleures offres ?",
+      "subtitle": "Des produits de qualité au meilleur prix, sélectionnés pour vous.",
+      "primary": "Voir les produits",
+      "secondary": "En savoir plus"
+    }
   }
 }
