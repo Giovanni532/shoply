@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import {
     NavigationMenu,
@@ -13,6 +15,8 @@ import {
 import { paths } from "@/paths"
 import { Sun } from "lucide-react"
 import Link from "next/link"
+import { authClient } from "@/lib/auth-client"
+import { useEffect } from "react"
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
@@ -23,6 +27,8 @@ const navigationLinks = [
 ]
 
 export default function Navbar() {
+    const { data, error, isPending } = authClient.useSession()
+
     return (
         <header className="border-b px-4 md:px-6">
             <div className="flex h-16 items-center justify-between gap-4">
@@ -107,14 +113,22 @@ export default function Navbar() {
                     </div>
                 </div>
                 {/* Right side */}
-                <div className="flex items-center gap-2">
-                    <Button asChild variant="ghost" size="sm" className="text-sm">
-                        <Link href={paths.auth.login}>Sign In</Link>
-                    </Button>
-                    <Button asChild size="sm" className="text-sm">
-                        <Link href={paths.auth.signup}>Get Started</Link>
-                    </Button>
-                </div>
+                {data?.user ? (
+                    <div className="flex items-center gap-2">
+                        <Button asChild variant="ghost" size="sm" className="text-sm">
+                            <Link href={paths.auth.login}>Sign In</Link>
+                        </Button>
+                    </div>
+                ) : (
+                    <div className="flex items-center gap-2">
+                        <Button asChild variant="ghost" size="sm" className="text-sm">
+                            <Link href={paths.auth.login}>Sign In</Link>
+                        </Button>
+                        <Button asChild size="sm" className="text-sm">
+                            <Link href={paths.auth.signup}>Get Started</Link>
+                        </Button>
+                    </div>
+                )}
             </div>
         </header>
     )
