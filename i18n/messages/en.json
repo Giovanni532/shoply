@@ -1,8 +1,8 @@
 {
   "common": {
     "home": "Home",
-    "features": "Features",
-    "pricing": "Pricing",
+    "products": "Products",
+    "contact": "Contact",
     "about": "About",
     "signIn": "Sign In",
     "getStarted": "Get Started",

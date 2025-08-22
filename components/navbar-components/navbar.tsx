@@ -26,8 +26,8 @@ const navigationLinks = (
     t: (key: string) => string
 ) => [
         { href: "#", label: t("common.home"), active: true },
-        { href: "#", label: t("common.features") },
-        { href: "#", label: t("common.pricing") },
+        { href: "#", label: t("common.products") },
+        { href: "#", label: t("common.contact") },
         { href: "#", label: t("common.about") },
     ]
 

@@ -1,13 +1,11 @@
 {
   "common": {
     "home": "Accueil",
-    "features": "Fonctionnalités",
-    "pricing": "Tarifs",
+    "products": "Produits",
     "about": "À propos",
+    "contact": "Contact",
     "signIn": "Se connecter",
     "getStarted": "Commencer",
     "signOut": "Déconnexion"
   }
 }
-
-

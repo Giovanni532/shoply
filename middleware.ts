@@ -9,13 +9,12 @@ import { routing } from './i18n/routing';
 const intlMiddleware = createIntlMiddleware(routing);
 
 export function middleware(req: NextRequest) {
-    // First, ensure a locale prefix is present
+    // First, run i18n middleware (do not return yet so we can add auth)
     const intlResponse = intlMiddleware(req);
-    if (intlResponse) return intlResponse;
 
     // Auth guard for account pages (works with /:locale/account/*)
     const pathname = req.nextUrl.pathname;
-    const isAccountPath = /\/(?:[a-zA-Z-]{2,5})\/account(\/.*)?$/.test(pathname) || pathname.startsWith("/account");
+    const isAccountPath = pathname.includes("/account");
     if (isAccountPath) {
         const sessionCookie = getSessionCookie(req);
         if (!sessionCookie) {
@@ -26,7 +25,8 @@ export function middleware(req: NextRequest) {
         }
     }
 
-    return NextResponse.next();
+    // Fall back to i18n response
+    return intlResponse;
 }
 
 export const config = {
