@@ -25,10 +25,10 @@ import { AnimatedThemeToggler } from "../theme/theme-toggler"
 const navigationLinks = (
     t: (key: string) => string
 ) => [
-        { href: "#", label: t("common.home"), active: true },
-        { href: "#", label: t("common.products") },
-        { href: "#", label: t("common.contact") },
-        { href: "#", label: t("common.about") },
+        { href: paths.home, label: t("common.home"), active: true },
+        { href: paths.products.list, label: t("common.products") },
+        { href: paths.legal.contact, label: t("common.contact") },
+        { href: paths.legal.about, label: t("common.about") },
     ]
 
 export default function Navbar() {

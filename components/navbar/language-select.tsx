@@ -34,12 +34,12 @@ export default function LanguageSelect() {
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="sm" className="text-sm">
-                    {locale.toUpperCase()}
+                    {locale === "fr" ? "🇫🇷 FR" : "🇺🇸 EN"}
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => switchLocale("fr")}>FR</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => switchLocale("en")}>EN</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => switchLocale("fr")} className="cursor-pointer">🇫🇷 FR</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => switchLocale("en")} className="cursor-pointer">🇺🇸 EN</DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
     );
