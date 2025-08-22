@@ -56,5 +56,11 @@
     "loginSuccess": "Connexion réussie !",
     "loginError": "Erreur lors de la connexion",
     "loginSocialSoon": "Connexion {provider} bientôt disponible"
+  },
+  "hero": {
+    "title": "Achetez malin, découvrez nos meilleurs produits",
+    "subtitle": "Des offres exceptionnelles, une livraison rapide et un service de qualité.",
+    "ctaPrimary": "Voir les produits",
+    "ctaSecondary": "En savoir plus"
   }
 }

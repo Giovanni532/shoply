@@ -55,6 +55,12 @@
     "loginSuccess": "Login successful!",
     "loginError": "Login error",
     "loginSocialSoon": "{provider} login coming soon"
+  },
+  "hero": {
+    "title": "Shop smarter, discover our best products",
+    "subtitle": "Great deals, fast delivery and quality service.",
+    "ctaPrimary": "Browse products",
+    "ctaSecondary": "Learn more"
   }
 }
 
