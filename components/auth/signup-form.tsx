@@ -213,24 +213,6 @@ const socialButtonVariants = {
     }
 };
 
-// Variants pour les messages d'aide
-const helpTextVariants = {
-    hidden: {
-        opacity: 0,
-        height: 0,
-        y: -10
-    },
-    visible: {
-        opacity: 1,
-        height: "auto",
-        y: 0,
-        transition: {
-            duration: 0.3,
-            ease: "easeOut"
-        }
-    }
-};
-
 export function SignupForm() {
     const t = useTranslations()
     const [firstName, setFirstName] = useState("");
@@ -269,7 +251,7 @@ export function SignupForm() {
         setIsLoading(true);
 
         try {
-            const { data, error } = await authClient.signUp.email({
+            const { error } = await authClient.signUp.email({
                 email,
                 password,
                 name: fullName,
@@ -283,7 +265,7 @@ export function SignupForm() {
                     router.push(paths.home);
                     router.refresh();
                 },
-                onError: (ctx) => {
+                onError: () => {
                     toast.error(t("auth.errorSignup"));
                     setIsLoading(false);
                 },

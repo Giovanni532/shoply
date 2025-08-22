@@ -167,7 +167,7 @@ export function LoginForm() {
         setIsLoading(true);
 
         try {
-            const { data, error } = await authClient.signIn.email({
+            const { error } = await authClient.signIn.email({
                 email,
                 password,
                 callbackURL: callbackUrl,
@@ -180,7 +180,7 @@ export function LoginForm() {
                     router.push(callbackUrl);
                     router.refresh();
                 },
-                onError: (ctx) => {
+                onError: () => {
                     toast.error(t("auth.loginError"));
                     setIsLoading(false);
                 },
