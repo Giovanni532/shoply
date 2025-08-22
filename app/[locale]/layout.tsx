@@ -1,8 +1,8 @@
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import { ThemeProvider } from '@/components/theme-provider';
-import Navbar from '@/components/navbar-components/navbar';
+import { ThemeProvider } from '@/components/theme/theme-provider';
+import Navbar from '@/components/navbar/navbar';
 import { Toaster } from 'sonner';
 
 export default async function LocaleLayout({

@@ -16,10 +16,10 @@ import { paths } from "@/paths"
 import { Sun } from "lucide-react"
 import Link from "next/link"
 import { authClient } from "@/lib/auth-client"
-import { useEffect } from "react"
 import UserMenu from "./user-menu"
 import { useTranslations } from "next-intl"
 import LanguageSelect from "./language-select"
+import { AnimatedThemeToggler } from "../theme/theme-toggler"
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = (
@@ -32,7 +32,7 @@ const navigationLinks = (
     ]
 
 export default function Navbar() {
-    const { data, error, isPending } = authClient.useSession()
+    const { data } = authClient.useSession()
     const t = useTranslations()
 
     return (
@@ -121,18 +121,20 @@ export default function Navbar() {
                 {/* Right side */}
                 {data?.user ? (
                     <div className="flex items-center gap-2">
+                        <AnimatedThemeToggler />
                         <LanguageSelect />
                         <UserMenu user={data.user} />
                     </div>
                 ) : (
                     <div className="flex items-center gap-2">
+                        <AnimatedThemeToggler />
+                        <LanguageSelect />
                         <Button asChild variant="ghost" size="sm" className="text-sm">
                             <Link href={paths.auth.login}>{t("common.signIn")}</Link>
                         </Button>
                         <Button asChild size="sm" className="text-sm">
                             <Link href={paths.auth.signup}>{t("common.getStarted")}</Link>
                         </Button>
-                        <LanguageSelect />
                     </div>
                 )}
             </div>
