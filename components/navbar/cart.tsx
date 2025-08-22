@@ -1,12 +1,14 @@
 "use client"
 
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { ShoppingCart, Minus, Plus, Trash2 } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter, SheetTrigger } from "@/components/ui/sheet"
 import { Separator } from "@/components/ui/separator"
 import { useTranslations } from "next-intl"
+import Link from "next/link"
+import { paths } from "@/paths"
 
 type CartItem = {
     id: string
@@ -116,7 +118,7 @@ export function CartButton() {
                             <p className="text-lg font-semibold">{totalPrice.toFixed(2)} CHF</p>
                         </div>
                         <Button className="min-w-32" onClick={() => setOpen(false)}>
-                            {t("checkout")}
+                            <Link href={paths.checkout}>{t("checkout")}</Link>
                         </Button>
                     </div>
                 </SheetFooter>
@@ -126,5 +128,3 @@ export function CartButton() {
 }
 
 export default CartButton
-
-// legacy placeholder removed
