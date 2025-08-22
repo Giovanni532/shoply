@@ -61,6 +61,13 @@
     "subtitle": "Great deals, fast delivery and quality service.",
     "ctaPrimary": "Browse products",
     "ctaSecondary": "Learn more"
+  },
+  "cart": {
+    "open": "Open cart",
+    "title": "Your cart",
+    "empty": "Your cart is empty",
+    "subtotal": "Subtotal",
+    "checkout": "Checkout"
   }
 }
 

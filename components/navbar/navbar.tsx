@@ -20,6 +20,7 @@ import UserMenu from "./user-menu"
 import { useTranslations } from "next-intl"
 import LanguageSelect from "./language-select"
 import { AnimatedThemeToggler } from "../theme/theme-toggler"
+import CartButton from "./cart"
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = (
@@ -121,12 +122,14 @@ export default function Navbar() {
                 {/* Right side */}
                 {data?.user ? (
                     <div className="flex items-center gap-2">
+                        <CartButton />
                         <AnimatedThemeToggler />
                         <LanguageSelect />
                         <UserMenu user={data.user} />
                     </div>
                 ) : (
                     <div className="flex items-center gap-2">
+                        <CartButton />
                         <AnimatedThemeToggler />
                         <LanguageSelect />
                         <Button asChild variant="ghost" size="sm" className="text-sm">

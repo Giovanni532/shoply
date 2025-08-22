@@ -62,5 +62,12 @@
     "subtitle": "Des offres exceptionnelles, une livraison rapide et un service de qualité.",
     "ctaPrimary": "Voir les produits",
     "ctaSecondary": "En savoir plus"
+  },
+  "cart": {
+    "open": "Ouvrir le panier",
+    "title": "Votre panier",
+    "empty": "Votre panier est vide",
+    "subtotal": "Sous-total",
+    "checkout": "Passer au paiement"
   }
 }
