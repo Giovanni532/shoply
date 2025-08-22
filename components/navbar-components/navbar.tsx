@@ -17,6 +17,7 @@ import { Sun } from "lucide-react"
 import Link from "next/link"
 import { authClient } from "@/lib/auth-client"
 import { useEffect } from "react"
+import UserMenu from "./user-menu"
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
@@ -115,9 +116,7 @@ export default function Navbar() {
                 {/* Right side */}
                 {data?.user ? (
                     <div className="flex items-center gap-2">
-                        <Button asChild variant="ghost" size="sm" className="text-sm">
-                            <Link href={paths.auth.login}>Sign In</Link>
-                        </Button>
+                        <UserMenu user={data.user} />
                     </div>
                 ) : (
                     <div className="flex items-center gap-2">
