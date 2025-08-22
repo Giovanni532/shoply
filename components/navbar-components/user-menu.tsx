@@ -24,12 +24,14 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { User } from "better-auth/types"
 import { authClient } from "@/lib/auth-client"
+import { useTranslations } from "next-intl"
 
 interface UserMenuProps {
   user: User
 }
 
 export default function UserMenu({ user }: UserMenuProps) {
+  const t = useTranslations("common")
 
   const handleSignOut = async () => {
     await authClient.signOut()
@@ -71,7 +73,7 @@ export default function UserMenu({ user }: UserMenuProps) {
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={handleSignOut}>
           <LogOutIcon size={16} className="opacity-60" aria-hidden="true" />
-          <span>Déconnexion</span>
+          <span>{t("signOut")}</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

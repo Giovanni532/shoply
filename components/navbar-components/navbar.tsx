@@ -18,17 +18,22 @@ import Link from "next/link"
 import { authClient } from "@/lib/auth-client"
 import { useEffect } from "react"
 import UserMenu from "./user-menu"
+import { useTranslations } from "next-intl"
+import LanguageSelect from "./language-select"
 
 // Navigation links array to be used in both desktop and mobile menus
-const navigationLinks = [
-    { href: "#", label: "Home", active: true },
-    { href: "#", label: "Features" },
-    { href: "#", label: "Pricing" },
-    { href: "#", label: "About" },
-]
+const navigationLinks = (
+    t: (key: string) => string
+) => [
+        { href: "#", label: t("common.home"), active: true },
+        { href: "#", label: t("common.features") },
+        { href: "#", label: t("common.pricing") },
+        { href: "#", label: t("common.about") },
+    ]
 
 export default function Navbar() {
     const { data, error, isPending } = authClient.useSession()
+    const t = useTranslations()
 
     return (
         <header className="border-b px-4 md:px-6">
@@ -73,7 +78,7 @@ export default function Navbar() {
                         <PopoverContent align="start" className="w-36 p-1 md:hidden">
                             <NavigationMenu className="max-w-none *:w-full">
                                 <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
-                                    {navigationLinks.map((link, index) => (
+                                    {navigationLinks(t).map((link, index) => (
                                         <NavigationMenuItem key={index} className="w-full">
                                             <NavigationMenuLink
                                                 href={link.href}
@@ -96,7 +101,7 @@ export default function Navbar() {
                         {/* Navigation menu */}
                         <NavigationMenu className="max-md:hidden">
                             <NavigationMenuList className="gap-2">
-                                {navigationLinks.map((link, index) => (
+                                {navigationLinks(t).map((link, index) => (
                                     <NavigationMenuItem key={index}>
                                         <NavigationMenuLink
                                             active={link.active}
@@ -116,16 +121,18 @@ export default function Navbar() {
                 {/* Right side */}
                 {data?.user ? (
                     <div className="flex items-center gap-2">
+                        <LanguageSelect />
                         <UserMenu user={data.user} />
                     </div>
                 ) : (
                     <div className="flex items-center gap-2">
                         <Button asChild variant="ghost" size="sm" className="text-sm">
-                            <Link href={paths.auth.login}>Sign In</Link>
+                            <Link href={paths.auth.login}>{t("common.signIn")}</Link>
                         </Button>
                         <Button asChild size="sm" className="text-sm">
-                            <Link href={paths.auth.signup}>Get Started</Link>
+                            <Link href={paths.auth.signup}>{t("common.getStarted")}</Link>
                         </Button>
+                        <LanguageSelect />
                     </div>
                 )}
             </div>

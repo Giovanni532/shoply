@@ -3,22 +3,36 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { getSessionCookie } from "better-auth/cookies";
 import { paths } from "./paths";
+import createIntlMiddleware from "next-intl/middleware";
+import { routing } from './i18n/routing';
+
+const intlMiddleware = createIntlMiddleware(routing);
 
 export function middleware(req: NextRequest) {
-    // Vérifie simplement l'existence du cookie de session (pas une validation complète)
-    const sessionCookie = getSessionCookie(req);
+    // First, ensure a locale prefix is present
+    const intlResponse = intlMiddleware(req);
+    if (intlResponse) return intlResponse;
 
-    // Si pas loggé -> redirige vers /login?from=/account/...
-    if (!sessionCookie) {
-        const loginUrl = new URL(paths.auth.login, req.url);
-        loginUrl.searchParams.set("from", req.nextUrl.pathname + req.nextUrl.search);
-        return NextResponse.redirect(loginUrl);
+    // Auth guard for account pages (works with /:locale/account/*)
+    const pathname = req.nextUrl.pathname;
+    const isAccountPath = /\/(?:[a-zA-Z-]{2,5})\/account(\/.*)?$/.test(pathname) || pathname.startsWith("/account");
+    if (isAccountPath) {
+        const sessionCookie = getSessionCookie(req);
+        if (!sessionCookie) {
+            const loginUrl = req.nextUrl.clone();
+            loginUrl.pathname = paths.auth.login;
+            loginUrl.searchParams.set("from", req.nextUrl.pathname + req.nextUrl.search);
+            return NextResponse.redirect(loginUrl);
+        }
     }
 
     return NextResponse.next();
 }
 
-// Le middleware ne tourne que sur /account/*
 export const config = {
-    matcher: ["/account/:path*"],
+    // Run on all paths except for the ones starting with api, _next or static files
+    matcher: [
+        "/((?!api|_next|.*\\..*).*)",
+        '/((?!api|trpc|_next|_vercel|.*\\..*).*)',
+    ],
 };

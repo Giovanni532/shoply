@@ -1,23 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "sonner";
-import Navbar from "@/components/navbar-components/navbar";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
-  title: "CFC Notes - Formation Informatique",
-  description: "Application de suivi des notes et compétences CFC",
+  title: "Shoply - Site de vente de produits",
+  description: "Site de vente de produits",
 };
 
 export default function RootLayout({
@@ -25,21 +11,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="fr" suppressHydrationWarning>
-      <head />
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          {children}
-          <Toaster />
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+  return children
 }
