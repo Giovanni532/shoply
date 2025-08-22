@@ -213,7 +213,7 @@ export function LoginForm() {
                     <CardHeader className="space-y-1">
                         <CardTitle className="text-2xl font-bold text-center">{t("auth.signIn")}</CardTitle>
                         <CardDescription className="text-center">
-                            {t("auth.title")}
+                            {t("auth.loginDescription")}
                         </CardDescription>
                     </CardHeader>
                 </motion.div>

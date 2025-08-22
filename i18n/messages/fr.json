@@ -18,7 +18,7 @@
     "trans": "ou continuer avec",
     "endTitle": "Vous n'avez pas de compte ?",
     "endLinkText": "Créer un compte",
-
+    "loginDescription": "Connectez-vous pour accéder à votre compte et profiter de vos commandes passées.",
     "signUpDescription": "Créez votre compte pour commencer",
     "name": "Prénom et nom",
     "firstNamePlaceholder": "Prénom",
