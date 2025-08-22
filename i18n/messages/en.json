@@ -7,6 +7,54 @@
     "signIn": "Sign In",
     "getStarted": "Get Started",
     "signOut": "Sign out"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign In",
+    "signingIn": "Signing in...",
+    "trans": "or continue with",
+    "endTitle": "Don't have an account?",
+    "endLinkText": "Create an account",
+    "signUpDescription": "Create your account to get started",
+    "name": "First and last name",
+    "firstNamePlaceholder": "First name",
+    "lastNamePlaceholder": "Last name",
+    "emailPlaceholder": "your@email.com",
+    "passwordPlaceholder": "••••••••",
+    "confirmPassword": "Confirm password",
+    "passwordStrengthLabel": "Password strength:",
+    "passwordStrength": {
+      "veryWeak": "Very weak",
+      "weak": "Weak",
+      "medium": "Medium",
+      "strong": "Strong",
+      "veryStrong": "Very strong"
+    },
+    "passwordCriteria": {
+      "length": "At least 8 characters",
+      "lowercase": "One lowercase letter",
+      "uppercase": "One uppercase letter",
+      "number": "One number",
+      "special": "One special character"
+    },
+    "createAccount": "Create account",
+    "creatingAccount": "Creating account...",
+    "signupEndTitle": "Already have an account?",
+    "signupEndLinkText": "Sign in",
+
+    "errorPasswordMismatch": "Passwords do not match",
+    "errorPasswordWeak": "Password must be stronger",
+    "errorMissingName": "Please fill in first and last name",
+    "successAccountCreated": "Account created successfully!",
+    "errorSignup": "Error during sign up",
+    "errorGeneric": "An error occurred",
+    "signupSocialSoon": "{provider} sign-up coming soon",
+    "loginSuccess": "Login successful!",
+    "loginError": "Login error",
+    "loginSocialSoon": "{provider} login coming soon"
   }
 }
 

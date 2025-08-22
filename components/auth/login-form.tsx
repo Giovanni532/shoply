@@ -13,6 +13,7 @@ import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
 import { paths } from "@/paths";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 // Icônes pour les réseaux sociaux
 const GoogleIcon = () => (
@@ -152,6 +153,7 @@ const socialButtonVariants = {
 };
 
 export function LoginForm() {
+    const t = useTranslations();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
@@ -174,21 +176,21 @@ export function LoginForm() {
                     setIsLoading(true);
                 },
                 onSuccess: () => {
-                    toast.success("Connexion réussie !");
+                    toast.success(t("auth.loginSuccess"));
                     router.push(callbackUrl);
                     router.refresh();
                 },
                 onError: (ctx) => {
-                    toast.error("Erreur lors de la connexion");
+                    toast.error(t("auth.loginError"));
                     setIsLoading(false);
                 },
             });
 
             if (error) {
-                toast.error("Erreur lors de la connexion");
+                toast.error(t("auth.loginError"));
             }
         } catch (error) {
-            toast.error("Une erreur est survenue");
+            toast.error(t("auth.errorGeneric"));
             console.error("Login error:", error);
         } finally {
             setIsLoading(false);
@@ -196,7 +198,7 @@ export function LoginForm() {
     };
 
     const handleSocialLogin = (provider: 'google' | 'facebook') => {
-        toast.info(`Connexion ${provider} bientôt disponible`);
+        toast.info(t("auth.loginSocialSoon", { provider }));
     };
 
     return (
@@ -209,9 +211,9 @@ export function LoginForm() {
             <Card className="overflow-hidden">
                 <motion.div variants={itemVariants}>
                     <CardHeader className="space-y-1">
-                        <CardTitle className="text-2xl font-bold text-center">Connexion</CardTitle>
+                        <CardTitle className="text-2xl font-bold text-center">{t("auth.signIn")}</CardTitle>
                         <CardDescription className="text-center">
-                            Entrez vos identifiants pour accéder à votre compte
+                            {t("auth.title")}
                         </CardDescription>
                     </CardHeader>
                 </motion.div>
@@ -222,7 +224,7 @@ export function LoginForm() {
                             variants={fieldVariants}
                             className="space-y-2"
                         >
-                            <Label htmlFor="email">Email</Label>
+                            <Label htmlFor="email">{t("auth.email")}</Label>
                             <motion.div
                                 whileFocus="focus"
                                 variants={fieldVariants}
@@ -230,7 +232,7 @@ export function LoginForm() {
                                 <Input
                                     id="email"
                                     type="email"
-                                    placeholder="votre@email.com"
+                                    placeholder={t("auth.emailPlaceholder")}
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
@@ -244,7 +246,7 @@ export function LoginForm() {
                             variants={fieldVariants}
                             className="space-y-2"
                         >
-                            <Label htmlFor="password">Mot de passe</Label>
+                            <Label htmlFor="password">{t("auth.password")}</Label>
                             <motion.div
                                 whileFocus="focus"
                                 variants={fieldVariants}
@@ -253,7 +255,7 @@ export function LoginForm() {
                                 <Input
                                     id="password"
                                     type={showPassword ? "text" : "password"}
-                                    placeholder="••••••••"
+                                    placeholder={t("auth.passwordPlaceholder")}
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     required
@@ -299,7 +301,7 @@ export function LoginForm() {
                                         className="mr-2 h-4 w-4 border-2 border-white border-t-transparent rounded-full"
                                     />
                                 ) : null}
-                                {isLoading ? "Connexion..." : "Se connecter"}
+                                {isLoading ? t("auth.signingIn") : t("auth.submit")}
                             </Button>
                         </motion.div>
 
@@ -308,7 +310,7 @@ export function LoginForm() {
                                 <Separator className="my-4" />
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <span className="bg-background px-2 text-xs text-muted-foreground">
-                                        ou continuer avec
+                                        {t("auth.trans")}
                                     </span>
                                 </div>
                             </div>
@@ -357,12 +359,12 @@ export function LoginForm() {
                             variants={itemVariants}
                             className="text-center text-sm"
                         >
-                            <span className="text-muted-foreground">Vous n'avez pas de compte ? </span>
+                            <span className="text-muted-foreground">{t("auth.endTitle")} </span>
                             <Link
                                 href={paths.auth.signup}
                                 className="text-primary hover:underline font-medium transition-colors duration-200"
                             >
-                                Créer un compte
+                                {t("auth.endLinkText")}
                             </Link>
                         </motion.div>
                     </CardFooter>

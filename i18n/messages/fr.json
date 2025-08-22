@@ -7,5 +7,54 @@
     "signIn": "Se connecter",
     "getStarted": "Commencer",
     "signOut": "Déconnexion"
+  },
+  "auth": {
+    "signIn": "Se connecter",
+    "signUp": "Créer un compte",
+    "email": "Email",
+    "password": "Mot de passe",
+    "submit": "Se connecter",
+    "signingIn": "Connexion...",
+    "trans": "ou continuer avec",
+    "endTitle": "Vous n'avez pas de compte ?",
+    "endLinkText": "Créer un compte",
+
+    "signUpDescription": "Créez votre compte pour commencer",
+    "name": "Prénom et nom",
+    "firstNamePlaceholder": "Prénom",
+    "lastNamePlaceholder": "Nom",
+    "emailPlaceholder": "votre@email.com",
+    "passwordPlaceholder": "••••••••",
+    "confirmPassword": "Confirmer le mot de passe",
+    "passwordStrengthLabel": "Force du mot de passe:",
+    "passwordStrength": {
+      "veryWeak": "Très faible",
+      "weak": "Faible",
+      "medium": "Moyen",
+      "strong": "Fort",
+      "veryStrong": "Très fort"
+    },
+    "passwordCriteria": {
+      "length": "Au moins 8 caractères",
+      "lowercase": "Une lettre minuscule",
+      "uppercase": "Une lettre majuscule",
+      "number": "Un chiffre",
+      "special": "Un caractère spécial"
+    },
+    "createAccount": "Créer un compte",
+    "creatingAccount": "Création du compte...",
+    "signupEndTitle": "Déjà un compte ?",
+    "signupEndLinkText": "Se connecter",
+
+    "errorPasswordMismatch": "Les mots de passe ne correspondent pas",
+    "errorPasswordWeak": "Le mot de passe doit être plus fort",
+    "errorMissingName": "Veuillez remplir le prénom et le nom",
+    "successAccountCreated": "Compte créé avec succès !",
+    "errorSignup": "Erreur lors de l'inscription",
+    "errorGeneric": "Une erreur est survenue",
+    "signupSocialSoon": "Inscription {provider} bientôt disponible",
+    "loginSuccess": "Connexion réussie !",
+    "loginError": "Erreur lors de la connexion",
+    "loginSocialSoon": "Connexion {provider} bientôt disponible"
   }
 }

@@ -13,6 +13,7 @@ import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { toast } from "sonner";
 import { paths } from "@/paths";
+import { useTranslations } from "next-intl";
 
 // Icônes pour les réseaux sociaux
 const GoogleIcon = () => (
@@ -43,7 +44,7 @@ const FacebookIcon = () => (
 );
 
 // Fonction pour valider la force du mot de passe
-const validatePassword = (password: string) => {
+const validatePassword = (password: string, t: (key: string) => string) => {
     const checks = {
         length: password.length >= 8,
         lowercase: /[a-z]/.test(password),
@@ -54,20 +55,20 @@ const validatePassword = (password: string) => {
 
     const score = Object.values(checks).filter(Boolean).length;
 
-    let strength = 'Très faible';
+    let strength = t('auth.passwordStrength.veryWeak');
     let color = 'text-red-500';
 
     if (score >= 5) {
-        strength = 'Très fort';
+        strength = t('auth.passwordStrength.veryStrong');
         color = 'text-green-500';
     } else if (score >= 4) {
-        strength = 'Fort';
+        strength = t('auth.passwordStrength.strong');
         color = 'text-green-400';
     } else if (score >= 3) {
-        strength = 'Moyen';
+        strength = t('auth.passwordStrength.medium');
         color = 'text-yellow-500';
     } else if (score >= 2) {
-        strength = 'Faible';
+        strength = t('auth.passwordStrength.weak');
         color = 'text-orange-500';
     }
 
@@ -75,7 +76,7 @@ const validatePassword = (password: string) => {
 };
 
 // Composant pour afficher les critères de validation
-const PasswordCriteria = ({ checks }: { checks: any }) => (
+const PasswordCriteria = ({ checks, t }: { checks: any, t: (key: string) => string }) => (
     <motion.div
         initial={{ opacity: 0, height: 0 }}
         animate={{ opacity: 1, height: "auto" }}
@@ -83,11 +84,11 @@ const PasswordCriteria = ({ checks }: { checks: any }) => (
         className="space-y-1 mt-2"
     >
         {[
-            { key: 'length', label: 'Au moins 8 caractères' },
-            { key: 'lowercase', label: 'Une lettre minuscule' },
-            { key: 'uppercase', label: 'Une lettre majuscule' },
-            { key: 'number', label: 'Un chiffre' },
-            { key: 'special', label: 'Un caractère spécial' }
+            { key: 'length', label: t('auth.passwordCriteria.length') },
+            { key: 'lowercase', label: t('auth.passwordCriteria.lowercase') },
+            { key: 'uppercase', label: t('auth.passwordCriteria.uppercase') },
+            { key: 'number', label: t('auth.passwordCriteria.number') },
+            { key: 'special', label: t('auth.passwordCriteria.special') }
         ].map(({ key, label }) => (
             <div key={key} className="flex items-center gap-2 text-xs">
                 {checks[key] ? (
@@ -231,6 +232,7 @@ const helpTextVariants = {
 };
 
 export function SignupForm() {
+    const t = useTranslations()
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -241,18 +243,18 @@ export function SignupForm() {
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
 
-    const passwordValidation = validatePassword(password);
+    const passwordValidation = validatePassword(password, t);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
         if (password !== confirmPassword) {
-            toast.error("Les mots de passe ne correspondent pas");
+            toast.error(t("auth.errorPasswordMismatch"));
             return;
         }
 
         if (passwordValidation.score < 3) {
-            toast.error("Le mot de passe doit être plus fort");
+            toast.error(t("auth.errorPasswordWeak"));
             return;
         }
 
@@ -260,7 +262,7 @@ export function SignupForm() {
         const fullName = `${firstName.trim()} ${lastName.trim()}`.trim();
 
         if (!firstName.trim() || !lastName.trim()) {
-            toast.error("Veuillez remplir le prénom et le nom");
+            toast.error(t("auth.errorMissingName"));
             return;
         }
 
@@ -277,21 +279,21 @@ export function SignupForm() {
                     setIsLoading(true);
                 },
                 onSuccess: () => {
-                    toast.success("Compte créé avec succès !");
+                    toast.success(t("auth.successAccountCreated"));
                     router.push(paths.home);
                     router.refresh();
                 },
                 onError: (ctx) => {
-                    toast.error("Erreur lors de l'inscription");
+                    toast.error(t("auth.errorSignup"));
                     setIsLoading(false);
                 },
             });
 
             if (error) {
-                toast.error(error.message || "Erreur lors de l'inscription");
+                toast.error(error.message || t("auth.errorSignup"));
             }
         } catch (error) {
-            toast.error("Une erreur est survenue");
+            toast.error(t("auth.errorGeneric"));
             console.error("Signup error:", error);
         } finally {
             setIsLoading(false);
@@ -299,7 +301,7 @@ export function SignupForm() {
     };
 
     const handleSocialLogin = (provider: 'google' | 'facebook') => {
-        toast.info(`Inscription ${provider} bientôt disponible`);
+        toast.info(t("auth.signupSocialSoon", { provider }));
     };
 
     return (
@@ -312,9 +314,9 @@ export function SignupForm() {
             <Card className="overflow-hidden">
                 <motion.div variants={itemVariants}>
                     <CardHeader className="space-y-1">
-                        <CardTitle className="text-2xl font-bold text-center">Inscription</CardTitle>
+                        <CardTitle className="text-2xl font-bold text-center">{t("auth.signUp")}</CardTitle>
                         <CardDescription className="text-center">
-                            Créez votre compte pour commencer
+                            {t("auth.signUpDescription")}
                         </CardDescription>
                     </CardHeader>
                 </motion.div>
@@ -325,7 +327,7 @@ export function SignupForm() {
                             variants={fieldVariants}
                             className="space-y-2"
                         >
-                            <Label>Nom et prénom</Label>
+                            <Label>{t("auth.name")}</Label>
                             <div className="flex gap-2">
                                 <motion.div
                                     whileFocus="focus"
@@ -335,7 +337,7 @@ export function SignupForm() {
                                     <Input
                                         id="firstName"
                                         type="text"
-                                        placeholder="Prénom"
+                                        placeholder={t("auth.firstNamePlaceholder")}
                                         value={firstName}
                                         onChange={(e) => setFirstName(e.target.value)}
                                         required
@@ -351,7 +353,7 @@ export function SignupForm() {
                                     <Input
                                         id="lastName"
                                         type="text"
-                                        placeholder="Nom"
+                                        placeholder={t("auth.lastNamePlaceholder")}
                                         value={lastName}
                                         onChange={(e) => setLastName(e.target.value)}
                                         required
@@ -366,7 +368,7 @@ export function SignupForm() {
                             variants={fieldVariants}
                             className="space-y-2"
                         >
-                            <Label htmlFor="email">Email</Label>
+                            <Label htmlFor="email">{t("auth.email")}</Label>
                             <motion.div
                                 whileFocus="focus"
                                 variants={fieldVariants}
@@ -374,7 +376,7 @@ export function SignupForm() {
                                 <Input
                                     id="email"
                                     type="email"
-                                    placeholder="votre@email.com"
+                                    placeholder={t("auth.emailPlaceholder")}
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
@@ -388,7 +390,7 @@ export function SignupForm() {
                             variants={fieldVariants}
                             className="space-y-2"
                         >
-                            <Label htmlFor="password">Mot de passe</Label>
+                            <Label htmlFor="password">{t("auth.password")}</Label>
                             <motion.div
                                 whileFocus="focus"
                                 variants={fieldVariants}
@@ -397,7 +399,7 @@ export function SignupForm() {
                                 <Input
                                     id="password"
                                     type={showPassword ? "text" : "password"}
-                                    placeholder="••••••••"
+                                    placeholder={t("auth.passwordPlaceholder")}
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     required
@@ -427,7 +429,7 @@ export function SignupForm() {
                                     className="space-y-2"
                                 >
                                     <div className="flex items-center justify-between">
-                                        <span className="text-xs text-muted-foreground">Force du mot de passe:</span>
+                                        <span className="text-xs text-muted-foreground">{t("auth.passwordStrengthLabel")}</span>
                                         <span className={`text-xs font-medium ${passwordValidation.color}`}>
                                             {passwordValidation.strength}
                                         </span>
@@ -443,7 +445,7 @@ export function SignupForm() {
                                             animate={{ width: `${(passwordValidation.score / 5) * 100}%` }}
                                         />
                                     </div>
-                                    <PasswordCriteria checks={passwordValidation.checks} />
+                                    <PasswordCriteria checks={passwordValidation.checks} t={t} />
                                 </motion.div>
                             )}
                         </motion.div>
@@ -452,7 +454,7 @@ export function SignupForm() {
                             variants={fieldVariants}
                             className="space-y-2"
                         >
-                            <Label htmlFor="confirmPassword">Confirmer le mot de passe</Label>
+                            <Label htmlFor="confirmPassword">{t("auth.confirmPassword")}</Label>
                             <motion.div
                                 whileFocus="focus"
                                 variants={fieldVariants}
@@ -461,7 +463,7 @@ export function SignupForm() {
                                 <Input
                                     id="confirmPassword"
                                     type={showConfirmPassword ? "text" : "password"}
-                                    placeholder="••••••••"
+                                    placeholder={t("auth.passwordPlaceholder")}
                                     value={confirmPassword}
                                     onChange={(e) => setConfirmPassword(e.target.value)}
                                     required
@@ -490,7 +492,7 @@ export function SignupForm() {
                                     exit={{ opacity: 0, y: -10 }}
                                     className="text-xs text-red-500"
                                 >
-                                    Les mots de passe ne correspondent pas
+                                    {t("auth.errorPasswordMismatch")}
                                 </motion.p>
                             )}
                         </motion.div>
@@ -517,7 +519,7 @@ export function SignupForm() {
                                         className="mr-2 h-4 w-4 border-2 border-white border-t-transparent rounded-full"
                                     />
                                 ) : null}
-                                {isLoading ? "Création du compte..." : "Créer un compte"}
+                                {isLoading ? t("auth.creatingAccount") : t("auth.createAccount")}
                             </Button>
                         </motion.div>
 
@@ -526,7 +528,7 @@ export function SignupForm() {
                                 <Separator className="my-4" />
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <span className="bg-background px-2 text-xs text-muted-foreground">
-                                        ou continuer avec
+                                        {t("auth.trans")}
                                     </span>
                                 </div>
                             </div>
@@ -576,12 +578,12 @@ export function SignupForm() {
                             variants={itemVariants}
                             className="text-center text-sm"
                         >
-                            <span className="text-muted-foreground">Déjà un compte ? </span>
+                            <span className="text-muted-foreground">{t("auth.signupEndTitle")} </span>
                             <Link
                                 href={paths.auth.login}
                                 className="text-primary hover:underline font-medium transition-colors duration-200"
                             >
-                                Se connecter
+                                {t("auth.signupEndLinkText")}
                             </Link>
                         </motion.div>
                     </CardFooter>
