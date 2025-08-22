@@ -21,7 +21,7 @@ export default async function LocaleLayout({
     return (
         <html lang={locale} suppressHydrationWarning>
             <head />
-            <body>
+            <body className="relative">
                 <NextIntlClientProvider>
                     <ThemeProvider
                         attribute="class"

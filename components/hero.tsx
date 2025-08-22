@@ -10,9 +10,9 @@ export default function Hero() {
     const t = useTranslations("hero");
 
     return (
-        <div className="relative">
+        <div className="relative isolate">
             <Plasma />
-            <section className="relative px-4 py-24 sm:py-28 md:py-32 lg:py-36 z-10">
+            <section className="relative z-0 px-4 py-24 sm:py-28 md:py-32 lg:py-36">
                 <div className="mx-auto max-w-5xl text-center">
                     <h1 className="text-balance text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
                         {t("title")}
