@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useAction } from "next-safe-action/hooks";
 import { updateProfile } from "@/actions/account";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 
 export default function ProfilePage() {
@@ -15,8 +17,12 @@ export default function ProfilePage() {
     const session = authClient.useSession()
     const schema = z.object({ name: z.string().min(2, { message: "nameMin" }) })
     const form = useForm<z.infer<typeof schema>>({ resolver: zodResolver(schema), defaultValues: { name: "" } })
+    const router = useRouter()
     const { execute, isPending } = useAction(updateProfile, {
-        onSuccess: () => alert(t("profile.saved")),
+        onSuccess: async () => {
+            toast.success(t("profile.saved"))
+            try { await authClient.getSession() } finally { router.refresh() }
+        },
     })
     return (
         <div className="mx-auto w-full max-w-4xl px-4 py-12 mt-20">
