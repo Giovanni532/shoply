@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react"
 import { ShoppingCart, Minus, Plus, Trash2 } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter, SheetTrigger } from "@/components/ui/sheet"
 import { Separator } from "@/components/ui/separator"
@@ -33,17 +33,7 @@ export function CartButton() {
                     className="relative h-9 w-9 rounded-full transition-transform hover:scale-105 active:scale-95"
                     aria-label={t("open")}
                 >
-                    <AnimatePresence initial={false}>
-                        <motion.span
-                            key={totalQuantity}
-                            initial={{ scale: 0.7, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.7, opacity: 0 }}
-                            transition={{ type: "spring", stiffness: 300, damping: 18 }}
-                        >
-                            <ShoppingCart className="size-5" />
-                        </motion.span>
-                    </AnimatePresence>
+                    <ShoppingCart className="size-5" />
                     {totalQuantity > 0 && (
                         <motion.span
                             initial={{ scale: 0 }}
