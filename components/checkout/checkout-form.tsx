@@ -18,6 +18,7 @@ import PostalLookup from "./postal-lookup"
 import CountrySelect from "./country-select"
 import PhoneInput from "./phone-input"
 import { useTranslations } from "next-intl"
+import { COUNTRY_NAME_TO_DIAL } from "./countries"
 
 type CheckoutInput = z.infer<typeof checkoutSchema>
 
@@ -27,11 +28,14 @@ export default function CheckoutForm() {
     const t = useTranslations("checkout")
     const lines = useCartStore(selectCartLines)
     const clear = useCartStore(s => s.clear)
+    const country = (typeof window !== 'undefined' ? undefined : undefined) as any // placeholder to keep order
     const defaultValues: CheckoutInput = {
         items: lines.map(l => ({ productId: l.productId, quantity: l.quantity })),
         shipping: { fullName: data?.user?.name ?? "", line1: "", line2: "", city: "", postalCode: "", country: "", phone: "" },
     }
     const form = useForm<CheckoutInput>({ resolver: zodResolver(checkoutSchema), defaultValues })
+    const currentCountry = form.watch("shipping.country") as string
+    const dial = COUNTRY_NAME_TO_DIAL[(currentCountry?.trim?.() || "")] || ""
 
     // Prefill full name from session when available
     useEffect(() => {
@@ -126,7 +130,7 @@ export default function CheckoutForm() {
                     <FormItem>
                         <FormLabel>{t("phone")}</FormLabel>
                         <PhoneInput />
-                        <FormMessage>{form.formState.errors.shipping?.phone?.message ? t(`errors.${form.formState.errors.shipping.phone.message as string}`) : null}</FormMessage>
+                        <FormMessage>{form.formState.errors.shipping?.phone?.message ? t(`errors.${form.formState.errors.shipping.phone.message as string}`, { dial }) : null}</FormMessage>
                     </FormItem>
                 )} />
                 <Button type="submit" disabled={isPending} className="w-full">{t("payNow")}</Button>
