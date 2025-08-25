@@ -96,6 +96,22 @@
     "sortPriceAsc": "Price: Low to High",
     "sortPriceDesc": "Price: High to Low"
   }
+  ,
+  "contact": {
+    "title": "Contact us",
+    "subtitle": "Have a question? Send us a message and we'll get back to you.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send",
+    "success": "Message sent! We'll reply shortly.",
+    "error": "Something went wrong. Please try again.",
+    "placeholder": {
+      "name": "Your name",
+      "email": "you@example.com",
+      "message": "Write your message here..."
+    }
+  }
 }
 
 

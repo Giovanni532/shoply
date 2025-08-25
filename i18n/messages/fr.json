@@ -96,4 +96,20 @@
     "sortPriceAsc": "Prix croissant",
     "sortPriceDesc": "Prix décroissant"
   }
+  ,
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Une question ? Envoyez-nous un message et nous reviendrons vers vous.",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Envoyer",
+    "success": "Message envoyé ! Nous vous répondrons rapidement.",
+    "error": "Une erreur est survenue. Veuillez réessayer.",
+    "placeholder": {
+      "name": "Votre nom",
+      "email": "vous@exemple.com",
+      "message": "Écrivez votre message ici..."
+    }
+  }
 }
