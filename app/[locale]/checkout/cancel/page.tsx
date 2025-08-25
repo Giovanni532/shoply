@@ -1,0 +1,17 @@
+import Link from "next/link";
+import { paths } from "@/paths";
+
+export default function CheckoutCancelPage() {
+    return (
+        <div className="mx-auto max-w-xl px-4 py-24 text-center">
+            <h1 className="text-3xl font-bold">Paiement annulé</h1>
+            <p className="mt-2 text-muted-foreground">Votre commande n'a pas été finalisée.</p>
+            <div className="mt-6 space-x-3">
+                <Link href={paths.cart} className="text-primary underline">Retour au panier</Link>
+                <Link href={paths.products.list} className="text-primary underline">Voir les produits</Link>
+            </div>
+        </div>
+    );
+}
+
+
