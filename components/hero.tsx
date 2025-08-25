@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Plasma } from "@/components/backgrounds/Plasma";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { paths } from "@/paths";
@@ -11,7 +10,6 @@ export default function Hero() {
 
     return (
         <div className="relative isolate">
-            <Plasma />
             <section className="relative z-0 px-4 py-24 sm:py-28 md:py-32 lg:py-36">
                 <div className="mx-auto max-w-5xl text-center">
                     <h1 className="text-balance text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
