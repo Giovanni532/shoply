@@ -193,7 +193,14 @@
         "status": "Status",
         "total": "Total"
       },
-      "empty": "You don't have any orders yet."
+      "empty": "You don't have any orders yet.",
+      "details": {
+        "title": "Order details",
+        "items": "Items",
+        "quantity": "Qty",
+        "price": "Price",
+        "back": "Back to orders"
+      }
     },
     "addresses": {
       "title": "Addresses",

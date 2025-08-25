@@ -193,7 +193,14 @@
         "status": "Statut",
         "total": "Total"
       },
-      "empty": "Vous n'avez pas encore de commandes."
+      "empty": "Vous n'avez pas encore de commandes.",
+      "details": {
+        "title": "Détail de la commande",
+        "items": "Articles",
+        "quantity": "Qté",
+        "price": "Prix",
+        "back": "Retour aux commandes"
+      }
     },
     "addresses": {
       "title": "Adresses",
