@@ -167,4 +167,18 @@
       "phoneInvalid": "Format international requis (ex: {dial}123456789)"
     }
   }
+  ,
+  "account": {
+    "profileTitle": "Mon profil",
+    "profileSubtitle": "Gérez vos informations personnelles.",
+    "ordersTitle": "Mes commandes",
+    "ordersSubtitle": "Consultez l'historique de vos commandes.",
+    "settingsTitle": "Paramètres",
+    "settingsSubtitle": "Préférences de votre compte.",
+    "menu": {
+      "profile": "Profil",
+      "orders": "Commandes",
+      "settings": "Paramètres"
+    }
+  }
 }

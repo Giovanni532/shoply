@@ -1,8 +1,4 @@
-import {
-  BoltIcon,
-  LogOutIcon,
-  PinIcon,
-} from "lucide-react"
+import { LogOutIcon, UserIcon, Package2Icon, Settings2Icon } from "lucide-react"
 
 import {
   Avatar,
@@ -22,6 +18,8 @@ import {
 import { User } from "better-auth/types"
 import { authClient } from "@/lib/auth-client"
 import { useTranslations } from "next-intl"
+import Link from "next/link"
+import { paths } from "@/paths"
 
 interface UserMenuProps {
   user: User
@@ -29,6 +27,7 @@ interface UserMenuProps {
 
 export default function UserMenu({ user }: UserMenuProps) {
   const t = useTranslations("common")
+  const ta = useTranslations("account")
 
   const handleSignOut = async () => {
     await authClient.signOut()
@@ -55,16 +54,23 @@ export default function UserMenu({ user }: UserMenuProps) {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <BoltIcon size={16} className="opacity-60" aria-hidden="true" />
-            <span>Option 1</span>
+          <DropdownMenuItem asChild>
+            <Link href={paths.account.profile} className="flex items-center gap-2">
+              <UserIcon size={16} className="opacity-60" aria-hidden="true" />
+              <span>{ta("menu.profile")}</span>
+            </Link>
           </DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <PinIcon size={16} className="opacity-60" aria-hidden="true" />
-            <span>Option 4</span>
+          <DropdownMenuItem asChild>
+            <Link href={paths.account.orders} className="flex items-center gap-2">
+              <Package2Icon size={16} className="opacity-60" aria-hidden="true" />
+              <span>{ta("menu.orders")}</span>
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link href={paths.account.settings} className="flex items-center gap-2">
+              <Settings2Icon size={16} className="opacity-60" aria-hidden="true" />
+              <span>{ta("menu.settings")}</span>
+            </Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
