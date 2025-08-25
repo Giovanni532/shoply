@@ -1,5 +1,5 @@
-import CheckoutForm from "@/components/checkout/CheckoutForm";
-import CheckoutSummary from "@/components/checkout/CheckoutSummary";
+import CheckoutForm from "@/components/checkout/checkout-form";
+import CheckoutSummary from "@/components/checkout/checkout-summary";
 
 export default function CheckoutPage() {
     return (
