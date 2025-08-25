@@ -92,7 +92,7 @@ export function CartButton() {
                             <p className="text-sm text-muted-foreground">{t("subtotal")}</p>
                             <p className="text-lg font-semibold">{subtotalFormatted}</p>
                         </div>
-                        <Button className="min-w-32" onClick={() => setOpen(false)}>
+                        <Button className="min-w-32" onClick={() => setOpen(false)} disabled={lines.length === 0}>
                             <Link href={paths.checkout}>{t("checkout")}</Link>
                         </Button>
                     </div>
