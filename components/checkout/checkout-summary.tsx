@@ -2,8 +2,10 @@
 
 import Link from "next/link"
 import { useCartStore, selectCartLines, selectCartSubtotalCents, selectCartCurrency } from "@/store/cart-store"
+import { useTranslations } from "next-intl"
 
 export default function CheckoutSummary() {
+    const t = useTranslations("checkout")
     const lines = useCartStore(selectCartLines)
     const subtotalCents = useCartStore(selectCartSubtotalCents)
     const currency = useCartStore(selectCartCurrency)
@@ -14,9 +16,9 @@ export default function CheckoutSummary() {
 
     return (
         <aside className="rounded-xl border bg-background p-4 md:p-6">
-            <h2 className="text-xl font-semibold mb-4">Votre commande</h2>
+            <h2 className="text-xl font-semibold mb-4">{t("summaryTitle")}</h2>
             {lines.length === 0 ? (
-                <p className="text-sm text-muted-foreground">Votre panier est vide.</p>
+                <p className="text-sm text-muted-foreground">{t("empty")}</p>
             ) : (
                 <ul className="space-y-4">
                     {lines.map((l) => (
@@ -43,25 +45,25 @@ export default function CheckoutSummary() {
 
             <div className="mt-6 space-y-2 text-sm">
                 <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground">Sous-total</span>
+                    <span className="text-muted-foreground">{t("subtotal")}</span>
                     <span className="font-medium">{format(subtotalCents)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground">Livraison</span>
+                    <span className="text-muted-foreground">{t("shipping")}</span>
                     <span className="font-medium">{format(shippingCents)}</span>
                 </div>
                 <div className="flex items-center justify-between pt-2 border-t">
-                    <span className="text-base font-semibold">Total</span>
+                    <span className="text-base font-semibold">{t("total")}</span>
                     <span className="text-base font-semibold">{format(totalCents)}</span>
                 </div>
             </div>
 
             <div className="mt-4 text-xs text-muted-foreground">
-                Paiement simulé, aucune donnée de carte n'est enregistrée.
+                {t("simulatedNote")}
             </div>
 
             <div className="mt-4 text-sm">
-                <Link href="/cart" className="text-primary underline">Modifier le panier</Link>
+                <Link href="/cart" className="text-primary underline">{t("editCart")}</Link>
             </div>
         </aside>
     )

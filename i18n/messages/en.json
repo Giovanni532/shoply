@@ -125,6 +125,35 @@
     "p2": "Our team is based in Europe and improves your experience every day.",
     "p3": "Thank you for your trust — enjoy your visit!"
   }
+  ,
+  "checkout": {
+    "title": "Checkout",
+    "fullName": "Full name",
+    "country": "Country",
+    "countryPlaceholder": "Select a country",
+    "address": "Address",
+    "addressPlaceholder": "Street and number",
+    "line2": "Address line 2",
+    "postalCode": "Postal code",
+    "city": "City",
+    "phone": "Phone",
+    "phoneInvalid": "International format required (e.g. {dial}123456789)",
+    "payNow": "Pay now",
+    "summaryTitle": "Your order",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "total": "Total",
+    "empty": "Your cart is empty.",
+    "editCart": "Edit cart",
+    "simulatedNote": "Payment is simulated, no card data is stored.",
+    "successTitle": "Payment successful 🎉",
+    "successSubtitle": "Thank you for your order.",
+    "successCta": "Continue shopping",
+    "cancelTitle": "Payment canceled",
+    "cancelSubtitle": "Your order was not completed.",
+    "cancelCtaCart": "Back to cart",
+    "cancelCtaProducts": "Browse products"
+  }
 }
 
 

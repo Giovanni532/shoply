@@ -17,12 +17,14 @@ import AddressAutocomplete from "./address-autocomplete"
 import PostalLookup from "./postal-lookup"
 import CountrySelect from "./country-select"
 import PhoneInput from "./phone-input"
+import { useTranslations } from "next-intl"
 
 type CheckoutInput = z.infer<typeof checkoutSchema>
 
 export default function CheckoutForm() {
     const router = useRouter()
     const { data } = authClient.useSession()
+    const t = useTranslations("checkout")
     const lines = useCartStore(selectCartLines)
     const clear = useCartStore(s => s.clear)
     const defaultValues: CheckoutInput = {
@@ -65,10 +67,10 @@ export default function CheckoutForm() {
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="mx-auto w-full max-w-xl space-y-4">
-                <h1 className="text-2xl font-bold text-center">Checkout</h1>
+                <h1 className="text-2xl font-bold text-center">{t("title")}</h1>
                 <FormField control={form.control} name="shipping.fullName" render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Nom complet</FormLabel>
+                        <FormLabel>{t("fullName")}</FormLabel>
                         <FormControl>
                             <Input
                                 {...field}
@@ -82,14 +84,14 @@ export default function CheckoutForm() {
                 )} />
                 <FormField control={form.control} name="shipping.country" render={() => (
                     <FormItem>
-                        <FormLabel>Pays</FormLabel>
+                        <FormLabel>{t("country")}</FormLabel>
                         <CountrySelect />
                         <FormMessage />
                     </FormItem>
                 )} />
                 <FormField control={form.control} name="shipping.line1" render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Adresse</FormLabel>
+                        <FormLabel>{t("address")}</FormLabel>
                         <FormControl><Input {...field} /></FormControl>
                         <FormMessage />
                         <AddressAutocomplete />
@@ -97,7 +99,7 @@ export default function CheckoutForm() {
                 )} />
                 <FormField control={form.control} name="shipping.line2" render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Complément</FormLabel>
+                        <FormLabel>{t("line2")}</FormLabel>
                         <FormControl><Input {...field} value={field.value ?? ""} /></FormControl>
                         <FormMessage />
                     </FormItem>
@@ -105,14 +107,14 @@ export default function CheckoutForm() {
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
                     <FormField control={form.control} name="shipping.postalCode" render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Code postal</FormLabel>
+                            <FormLabel>{t("postalCode")}</FormLabel>
                             <FormControl><Input {...field} /></FormControl>
                             <FormMessage />
                         </FormItem>
                     )} />
                     <FormField control={form.control} name="shipping.city" render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Ville</FormLabel>
+                            <FormLabel>{t("city")}</FormLabel>
                             <FormControl><Input {...field} /></FormControl>
                             <FormMessage />
                         </FormItem>
@@ -122,12 +124,12 @@ export default function CheckoutForm() {
                 <PostalLookup />
                 <FormField control={form.control} name="shipping.phone" render={() => (
                     <FormItem>
-                        <FormLabel>Téléphone</FormLabel>
+                        <FormLabel>{t("phone")}</FormLabel>
                         <PhoneInput />
                         <FormMessage />
                     </FormItem>
                 )} />
-                <Button type="submit" disabled={isPending} className="w-full">Payer maintenant</Button>
+                <Button type="submit" disabled={isPending} className="w-full">{t("payNow")}</Button>
             </form>
         </Form>
     )

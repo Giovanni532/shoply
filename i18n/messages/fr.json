@@ -125,4 +125,33 @@
     "p2": "Notre équipe est basée en Europe et travaille chaque jour pour améliorer votre expérience.",
     "p3": "Merci de votre confiance — et bonne visite !"
   }
+  ,
+  "checkout": {
+    "title": "Paiement",
+    "fullName": "Nom complet",
+    "country": "Pays",
+    "countryPlaceholder": "Sélectionner un pays",
+    "address": "Adresse",
+    "addressPlaceholder": "Numéro et rue",
+    "line2": "Complément",
+    "postalCode": "Code postal",
+    "city": "Ville",
+    "phone": "Téléphone",
+    "phoneInvalid": "Format international requis (ex: {dial}123456789)",
+    "payNow": "Payer maintenant",
+    "summaryTitle": "Votre commande",
+    "subtotal": "Sous-total",
+    "shipping": "Livraison",
+    "total": "Total",
+    "empty": "Votre panier est vide.",
+    "editCart": "Modifier le panier",
+    "simulatedNote": "Paiement simulé, aucune donnée de carte n'est enregistrée.",
+    "successTitle": "Paiement réussi 🎉",
+    "successSubtitle": "Merci pour votre commande.",
+    "successCta": "Continuer vos achats",
+    "cancelTitle": "Paiement annulé",
+    "cancelSubtitle": "Votre commande n'a pas été finalisée.",
+    "cancelCtaCart": "Retour au panier",
+    "cancelCtaProducts": "Voir les produits"
+  }
 }
