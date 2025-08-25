@@ -110,6 +110,11 @@
       "name": "Your name",
       "email": "you@example.com",
       "message": "Write your message here..."
+    },
+    "errors": {
+      "nameMin": "Name must be at least 2 characters",
+      "emailInvalid": "Invalid email address",
+      "messageMin": "Message must be at least 10 characters"
     }
   }
 }

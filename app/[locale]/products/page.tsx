@@ -1,5 +1,5 @@
 
-import ProductsBrowser from "@/components/product/ProductsBrowser";
+import ProductsBrowser from "@/components/product/products-browser";
 import { getProductsAndCategories } from "@/actions/product";
 
 

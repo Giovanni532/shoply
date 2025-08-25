@@ -7,21 +7,16 @@ import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
-
-const schema = z.object({
-    name: z.string().min(2),
-    email: z.string().email(),
-    message: z.string().min(10),
-})
+import { contactSchema } from "@/validations/contact"
 
 export default function ContactForm() {
     const t = useTranslations("contact")
-    const form = useForm<z.infer<typeof schema>>({
-        resolver: zodResolver(schema),
+    const form = useForm<z.infer<typeof contactSchema>>({
+        resolver: zodResolver(contactSchema),
         defaultValues: { name: "", email: "", message: "" },
     })
     const { execute, isPending, result } = useAction(sendContactMessage, {
@@ -29,7 +24,7 @@ export default function ContactForm() {
         onError: () => toast.error(t("error")),
     })
 
-    const onSubmit = (values: z.infer<typeof schema>) => execute(values)
+    const onSubmit = (values: z.infer<typeof contactSchema>) => execute(values)
 
     return (
         <Form {...form}>
@@ -48,6 +43,7 @@ export default function ContactForm() {
                             <FormControl>
                                 <Input placeholder={t("placeholder.name")} {...field} />
                             </FormControl>
+                            <FormMessage>{form.formState.errors.name?.message ? t(`errors.${form.formState.errors.name.message as string}`) : null}</FormMessage>
                         </FormItem>
                     )}
                 />
@@ -60,6 +56,7 @@ export default function ContactForm() {
                             <FormControl>
                                 <Input placeholder={t("placeholder.email")} type="email" {...field} />
                             </FormControl>
+                            <FormMessage>{form.formState.errors.email?.message ? t(`errors.${form.formState.errors.email.message as string}`) : null}</FormMessage>
                         </FormItem>
                     )}
                 />
@@ -72,6 +69,7 @@ export default function ContactForm() {
                             <FormControl>
                                 <Textarea placeholder={t("placeholder.message")} rows={6} {...field} />
                             </FormControl>
+                            <FormMessage>{form.formState.errors.message?.message ? t(`errors.${form.formState.errors.message.message as string}`) : null}</FormMessage>
                         </FormItem>
                     )}
                 />
