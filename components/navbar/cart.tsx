@@ -48,7 +48,7 @@ export function CartButton() {
                         <motion.span
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
-                            transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
                             className="absolute -right-1 -top-1 grid min-h-5 min-w-5 place-items-center rounded-full bg-primary px-1 text-[10px] font-bold text-primary-foreground shadow"
                         >
                             {totalQuantity}
