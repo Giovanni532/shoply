@@ -6,7 +6,8 @@
     "contact": "Contact",
     "signIn": "Se connecter",
     "getStarted": "Commencer",
-    "signOut": "Déconnexion"
+    "signOut": "Déconnexion",
+    "namePlaceholder": "Prénom et nom"
   },
   "auth": {
     "signIn": "Se connecter",
@@ -179,6 +180,37 @@
       "profile": "Profil",
       "orders": "Commandes",
       "settings": "Paramètres"
+    },
+    "profile": {
+      "name": "Nom",
+      "save": "Enregistrer",
+      "saved": "Profil mis à jour"
+    },
+    "orders": {
+      "table": {
+        "id": "Commande",
+        "date": "Date",
+        "status": "Statut",
+        "total": "Total"
+      },
+      "empty": "Vous n'avez pas encore de commandes."
+    },
+    "addresses": {
+      "title": "Adresses",
+      "add": "Ajouter une adresse",
+      "delete": "Supprimer",
+      "saved": "Adresse enregistrée",
+      "removed": "Adresse supprimée",
+      "form": {
+        "fullName": "Nom complet",
+        "line1": "Adresse",
+        "line2": "Complément",
+        "city": "Ville",
+        "postalCode": "Code postal",
+        "country": "Pays",
+        "phone": "Téléphone",
+        "save": "Enregistrer"
+      }
     }
   }
 }
