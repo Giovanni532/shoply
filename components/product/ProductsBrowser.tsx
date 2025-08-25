@@ -4,6 +4,7 @@ import { useMemo, useState } from "react"
 import ProductCard from "@/components/product/card-product"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useTranslations } from "next-intl"
 
 type Product = {
     id: string
@@ -17,6 +18,7 @@ type Product = {
 type Category = { id: string; name: string }
 
 export default function ProductsBrowser({ products, categories }: { products: Product[]; categories: Category[] }) {
+    const t = useTranslations("products")
     const [query, setQuery] = useState("")
     const [categoryId, setCategoryId] = useState<string | "all">("all")
     const [sort, setSort] = useState<"new" | "price-asc" | "price-desc">("new")
@@ -31,17 +33,17 @@ export default function ProductsBrowser({ products, categories }: { products: Pr
 
     return (
         <div className="mx-auto w-full max-w-6xl px-4 py-10 mt-20">
-            <h1 className="text-3xl font-bold text-center mb-10">Nos produits</h1>
+            <h1 className="text-3xl font-bold text-center mb-10">{t("title")}</h1>
             <div className="flex flex-wrap items-center gap-3 justify-center">
                 <div className="min-w-60">
-                    <Input placeholder="Rechercher un produit" value={query} onChange={e => setQuery(e.target.value)} />
+                    <Input placeholder={t("search")} value={query} onChange={e => setQuery(e.target.value)} />
                 </div>
                 <Select value={categoryId} onValueChange={v => setCategoryId(v as any)}>
                     <SelectTrigger className="w-52">
-                        <SelectValue placeholder="Catégorie" />
+                        <SelectValue placeholder={t("category")} />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="all">Toutes les catégories</SelectItem>
+                        <SelectItem value="all">{t("allCategories")}</SelectItem>
                         {categories.map(c => (
                             <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>
                         ))}
@@ -49,12 +51,12 @@ export default function ProductsBrowser({ products, categories }: { products: Pr
                 </Select>
                 <Select value={sort} onValueChange={v => setSort(v as any)}>
                     <SelectTrigger className="w-48">
-                        <SelectValue placeholder="Trier" />
+                        <SelectValue placeholder={t("sort")} />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="new">Nouveautés</SelectItem>
-                        <SelectItem value="price-asc">Prix croissant</SelectItem>
-                        <SelectItem value="price-desc">Prix décroissant</SelectItem>
+                        <SelectItem value="new">{t("sortNew")}</SelectItem>
+                        <SelectItem value="price-asc">{t("sortPriceAsc")}</SelectItem>
+                        <SelectItem value="price-desc">{t("sortPriceDesc")}</SelectItem>
                     </SelectContent>
                 </Select>
             </div>

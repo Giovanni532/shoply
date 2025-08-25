@@ -85,6 +85,17 @@
       "secondary": "Learn more"
     }
   }
+  ,
+  "products": {
+    "title": "Our products",
+    "search": "Search a product",
+    "category": "Category",
+    "allCategories": "All categories",
+    "sort": "Sort",
+    "sortNew": "New arrivals",
+    "sortPriceAsc": "Price: Low to High",
+    "sortPriceDesc": "Price: High to Low"
+  }
 }
 
 

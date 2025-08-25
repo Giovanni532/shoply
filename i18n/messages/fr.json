@@ -85,4 +85,15 @@
       "secondary": "En savoir plus"
     }
   }
+  ,
+  "products": {
+    "title": "Nos produits",
+    "search": "Rechercher un produit",
+    "category": "Catégorie",
+    "allCategories": "Toutes les catégories",
+    "sort": "Trier",
+    "sortNew": "Nouveautés",
+    "sortPriceAsc": "Prix croissant",
+    "sortPriceDesc": "Prix décroissant"
+  }
 }
