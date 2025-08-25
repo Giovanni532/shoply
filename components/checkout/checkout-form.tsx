@@ -5,6 +5,7 @@ import { createCheckout } from "@/actions/checkout"
 import { useCartStore, selectCartLines } from "@/store/cart-store"
 import { authClient } from "@/lib/auth-client"
 import { z } from "zod"
+import { useEffect } from "react"
 import { checkoutSchema } from "@/validations/checkout"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -29,6 +30,14 @@ export default function CheckoutForm() {
         shipping: { fullName: data?.user?.name ?? "", line1: "", line2: "", city: "", postalCode: "", country: "", phone: "" },
     }
     const form = useForm<CheckoutInput>({ resolver: zodResolver(checkoutSchema), defaultValues })
+
+    // Prefill full name from session when available
+    useEffect(() => {
+        if (data?.user?.name) {
+            form.setValue("shipping.fullName", data.user.name, { shouldDirty: false })
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [data?.user?.name])
     const { execute, isPending } = useAction(createCheckout, {
         onSuccess: (res) => {
             const orderId = (res as any)?.data?.orderId ?? (res as any)?.orderId
@@ -40,7 +49,18 @@ export default function CheckoutForm() {
         },
     })
 
-    const onSubmit = (values: CheckoutInput) => execute(values)
+    const onSubmit = (values: CheckoutInput) => {
+        // Normalize optional fields to null for schema (avoid empty string failing optional/nullable)
+        const payload: CheckoutInput = {
+            ...values,
+            shipping: {
+                ...values.shipping,
+                line2: values.shipping.line2 ? values.shipping.line2 : null,
+                phone: values.shipping.phone ? values.shipping.phone : null,
+            },
+        }
+        execute(payload)
+    }
 
     return (
         <Form {...form}>
@@ -49,7 +69,14 @@ export default function CheckoutForm() {
                 <FormField control={form.control} name="shipping.fullName" render={({ field }) => (
                     <FormItem>
                         <FormLabel>Nom complet</FormLabel>
-                        <FormControl><Input {...field} value={field.value ?? ""} /></FormControl>
+                        <FormControl>
+                            <Input
+                                {...field}
+                                value={field.value ?? ""}
+                                readOnly={!!data?.user?.name}
+                                disabled={!!data?.user?.name}
+                            />
+                        </FormControl>
                         <FormMessage />
                     </FormItem>
                 )} />
