@@ -157,6 +157,14 @@
     "cancelTitle": "Paiement annulé",
     "cancelSubtitle": "Votre commande n'a pas été finalisée.",
     "cancelCtaCart": "Retour au panier",
-    "cancelCtaProducts": "Voir les produits"
+    "cancelCtaProducts": "Voir les produits",
+    "errors": {
+      "fullNameMin": "Le nom doit contenir au moins 2 caractères",
+      "addressMin": "L'adresse doit contenir au moins 3 caractères",
+      "cityMin": "La ville doit contenir au moins 2 caractères",
+      "postalMin": "Le code postal doit contenir au moins 2 caractères",
+      "countryMin": "Le pays doit contenir au moins 2 caractères",
+      "phoneInvalid": "Format international requis (ex: {dial}123456789)"
+    }
   }
 }

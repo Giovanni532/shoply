@@ -157,7 +157,15 @@
     "cancelTitle": "Payment canceled",
     "cancelSubtitle": "Your order was not completed.",
     "cancelCtaCart": "Back to cart",
-    "cancelCtaProducts": "Browse products"
+    "cancelCtaProducts": "Browse products",
+    "errors": {
+      "fullNameMin": "Name must be at least 2 characters",
+      "addressMin": "Address must be at least 3 characters",
+      "cityMin": "City must be at least 2 characters",
+      "postalMin": "Postal code must be at least 2 characters",
+      "countryMin": "Country must be at least 2 characters",
+      "phoneInvalid": "International format required (e.g. {dial}123456789)"
+    }
   }
 }
 

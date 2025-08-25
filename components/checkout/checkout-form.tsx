@@ -79,7 +79,7 @@ export default function CheckoutForm() {
                                 disabled={!!data?.user?.name}
                             />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage>{form.formState.errors.shipping?.fullName?.message ? t(`errors.${form.formState.errors.shipping.fullName.message as string}`) : null}</FormMessage>
                     </FormItem>
                 )} />
                 <FormField control={form.control} name="shipping.country" render={() => (
@@ -93,7 +93,7 @@ export default function CheckoutForm() {
                     <FormItem>
                         <FormLabel>{t("address")}</FormLabel>
                         <FormControl><Input {...field} /></FormControl>
-                        <FormMessage />
+                        <FormMessage>{form.formState.errors.shipping?.line1?.message ? t(`errors.${form.formState.errors.shipping.line1.message as string}`) : null}</FormMessage>
                         <AddressAutocomplete />
                     </FormItem>
                 )} />
@@ -109,14 +109,14 @@ export default function CheckoutForm() {
                         <FormItem>
                             <FormLabel>{t("postalCode")}</FormLabel>
                             <FormControl><Input {...field} /></FormControl>
-                            <FormMessage />
+                            <FormMessage>{form.formState.errors.shipping?.postalCode?.message ? t(`errors.${form.formState.errors.shipping.postalCode.message as string}`) : null}</FormMessage>
                         </FormItem>
                     )} />
                     <FormField control={form.control} name="shipping.city" render={({ field }) => (
                         <FormItem>
                             <FormLabel>{t("city")}</FormLabel>
                             <FormControl><Input {...field} /></FormControl>
-                            <FormMessage />
+                            <FormMessage>{form.formState.errors.shipping?.city?.message ? t(`errors.${form.formState.errors.shipping.city.message as string}`) : null}</FormMessage>
                         </FormItem>
                     )} />
                     {/* country moved above */}
@@ -126,7 +126,7 @@ export default function CheckoutForm() {
                     <FormItem>
                         <FormLabel>{t("phone")}</FormLabel>
                         <PhoneInput />
-                        <FormMessage />
+                        <FormMessage>{form.formState.errors.shipping?.phone?.message ? t(`errors.${form.formState.errors.shipping.phone.message as string}`) : null}</FormMessage>
                     </FormItem>
                 )} />
                 <Button type="submit" disabled={isPending} className="w-full">{t("payNow")}</Button>

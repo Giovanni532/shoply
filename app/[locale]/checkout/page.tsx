@@ -1,5 +1,6 @@
 import CheckoutForm from "@/components/checkout/checkout-form";
 import CheckoutSummary from "@/components/checkout/checkout-summary";
+import CheckoutGuard from "@/components/checkout/checkout-guard";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 
@@ -9,6 +10,7 @@ export default function CheckoutPage() {
     // add a client-side guard inside CheckoutSummary to prompt users.
     return (
         <div className="px-4 py-12 mt-20">
+            <CheckoutGuard />
             <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-8 md:grid-cols-2">
                 <CheckoutForm />
                 <CheckoutSummary />
