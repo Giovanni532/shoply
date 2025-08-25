@@ -14,34 +14,38 @@ export default function CheckoutSummary() {
     const shippingCents = 0
     const totalCents = subtotalCents + shippingCents
 
+    if (lines.length === 0) {
+        return (
+            <aside className="rounded-xl border bg-background p-4 md:p-6 text-center text-sm text-muted-foreground">
+                {t("empty")}
+            </aside>
+        )
+    }
+
     return (
         <aside className="rounded-xl border bg-background p-4 md:p-6">
             <h2 className="text-xl font-semibold mb-4">{t("summaryTitle")}</h2>
-            {lines.length === 0 ? (
-                <p className="text-sm text-muted-foreground">{t("empty")}</p>
-            ) : (
-                <ul className="space-y-4">
-                    {lines.map((l) => (
-                        <li key={l.productId} className="flex items-center gap-3">
-                            <div className="size-14 shrink-0 overflow-hidden rounded bg-muted">
-                                {l.imageUrl ? (
-                                    // eslint-disable-next-line @next/next/no-img-element
-                                    <img src={l.imageUrl} alt={l.name} className="h-full w-full object-cover" />
-                                ) : null}
-                            </div>
-                            <div className="min-w-0 flex-1">
-                                <p className="truncate text-sm font-medium">{l.name}</p>
-                                <p className="text-xs text-muted-foreground">
-                                    {l.quantity} × {format(l.unitPriceCents)}
-                                </p>
-                            </div>
-                            <div className="text-sm font-medium">
-                                {format(l.unitPriceCents * l.quantity)}
-                            </div>
-                        </li>
-                    ))}
-                </ul>
-            )}
+            <ul className="space-y-4">
+                {lines.map((l) => (
+                    <li key={l.productId} className="flex items-center gap-3">
+                        <div className="size-14 shrink-0 overflow-hidden rounded bg-muted">
+                            {l.imageUrl ? (
+                                // eslint-disable-next-line @next/next/no-img-element
+                                <img src={l.imageUrl} alt={l.name} className="h-full w-full object-cover" />
+                            ) : null}
+                        </div>
+                        <div className="min-w-0 flex-1">
+                            <p className="truncate text-sm font-medium">{l.name}</p>
+                            <p className="text-xs text-muted-foreground">
+                                {l.quantity} × {format(l.unitPriceCents)}
+                            </p>
+                        </div>
+                        <div className="text-sm font-medium">
+                            {format(l.unitPriceCents * l.quantity)}
+                        </div>
+                    </li>
+                ))}
+            </ul>
 
             <div className="mt-6 space-y-2 text-sm">
                 <div className="flex items-center justify-between">
