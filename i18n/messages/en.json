@@ -117,6 +117,14 @@
       "messageMin": "Message must be at least 10 characters"
     }
   }
+  ,
+  "about": {
+    "title": "About Shoply",
+    "subtitle": "Our mission is to make e‑commerce simple, fast and delightful.",
+    "p1": "We curate quality products at the best price and ship them fast.",
+    "p2": "Our team is based in Europe and improves your experience every day.",
+    "p3": "Thank you for your trust — enjoy your visit!"
+  }
 }
 
 
