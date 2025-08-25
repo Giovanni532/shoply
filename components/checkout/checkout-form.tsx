@@ -3,6 +3,7 @@
 import { useAction } from "next-safe-action/hooks"
 import { createCheckout } from "@/actions/checkout"
 import { useCartStore, selectCartLines } from "@/store/cart-store"
+import { authClient } from "@/lib/auth-client"
 import { z } from "zod"
 import { checkoutSchema } from "@/validations/checkout"
 import { useForm } from "react-hook-form"
@@ -14,16 +15,18 @@ import { useRouter } from "next/navigation"
 import AddressAutocomplete from "./address-autocomplete"
 import PostalLookup from "./postal-lookup"
 import CountrySelect from "./country-select"
+import PhoneInput from "./phone-input"
 
 type CheckoutInput = z.infer<typeof checkoutSchema>
 
 export default function CheckoutForm() {
     const router = useRouter()
+    const { data } = authClient.useSession()
     const lines = useCartStore(selectCartLines)
     const clear = useCartStore(s => s.clear)
     const defaultValues: CheckoutInput = {
         items: lines.map(l => ({ productId: l.productId, quantity: l.quantity })),
-        shipping: { fullName: "", line1: "", line2: "", city: "", postalCode: "", country: "", phone: "" },
+        shipping: { fullName: data?.user?.name ?? "", line1: "", line2: "", city: "", postalCode: "", country: "", phone: "" },
     }
     const form = useForm<CheckoutInput>({ resolver: zodResolver(checkoutSchema), defaultValues })
     const { execute, isPending } = useAction(createCheckout, {
@@ -46,7 +49,7 @@ export default function CheckoutForm() {
                 <FormField control={form.control} name="shipping.fullName" render={({ field }) => (
                     <FormItem>
                         <FormLabel>Nom complet</FormLabel>
-                        <FormControl><Input {...field} /></FormControl>
+                        <FormControl><Input {...field} value={field.value ?? ""} /></FormControl>
                         <FormMessage />
                     </FormItem>
                 )} />
@@ -90,10 +93,10 @@ export default function CheckoutForm() {
                     {/* country moved above */}
                 </div>
                 <PostalLookup />
-                <FormField control={form.control} name="shipping.phone" render={({ field }) => (
+                <FormField control={form.control} name="shipping.phone" render={() => (
                     <FormItem>
                         <FormLabel>Téléphone</FormLabel>
-                        <FormControl><Input {...field} value={field.value ?? ""} /></FormControl>
+                        <PhoneInput />
                         <FormMessage />
                     </FormItem>
                 )} />

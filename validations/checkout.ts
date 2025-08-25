@@ -14,7 +14,7 @@ export const checkoutSchema = z.object({
         city: z.string().min(2),
         postalCode: z.string().min(2),
         country: z.string().min(2),
-        phone: z.string().min(6).optional().nullable(),
+        phone: z.string().regex(/^\+[1-9]\d{6,14}$/, { message: "Invalid phone (E.164)" }).optional().nullable(),
     }),
 });
 
