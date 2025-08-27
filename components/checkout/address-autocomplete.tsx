@@ -29,7 +29,7 @@ export default function AddressAutocomplete() {
     const line1: string = useWatch({ control, name: "shipping.line1" })
     const countryName: string = useWatch({ control, name: "shipping.country" })
     const [open, setOpen] = useState(false)
-    const [loading, setLoading] = useState(false)
+    const [, setLoading] = useState(false)
     const [items, setItems] = useState<NominatimResult[]>([])
     const timer = useRef<any>(null)
 
@@ -61,7 +61,7 @@ export default function AddressAutocomplete() {
                 const data = (await res.json()) as NominatimResult[]
                 setItems(data)
                 setOpen(data.length > 0)
-            } catch (e) {
+            } catch {
                 setItems([])
                 setOpen(false)
             } finally {

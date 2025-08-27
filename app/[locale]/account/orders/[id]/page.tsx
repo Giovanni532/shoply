@@ -14,13 +14,13 @@ type OrderItemRow = {
     unitPriceCents: number | null;
 };
 
-export default async function OrderDetailsPage({ params }: { params: { id: string } }) {
+export default async function OrderDetailsPage({ params }: { params: Promise<{ id: string }> }) {
     const t = await getTranslations("account");
     const session = await auth.api.getSession({ headers: await headers() });
     if (!session?.user?.id) {
         return null;
     }
-    const id = params.id;
+    const { id } = await params;
 
     const rows = await db
         .select({

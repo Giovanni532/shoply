@@ -28,7 +28,7 @@ export default function CheckoutForm() {
     const t = useTranslations("checkout")
     const lines = useCartStore(selectCartLines)
     const clear = useCartStore(s => s.clear)
-    const country = (typeof window !== 'undefined' ? undefined : undefined) as any // placeholder to keep order
+    // const country = (typeof window !== 'undefined' ? undefined : undefined) as any // placeholder to keep order
     const defaultValues: CheckoutInput = {
         items: lines.map(l => ({ productId: l.productId, quantity: l.quantity })),
         shipping: { fullName: data?.user?.name ?? "", line1: "", line2: "", city: "", postalCode: "", country: "", phone: "" },

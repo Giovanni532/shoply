@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo } from "react"
 import { useFormContext, useWatch } from "react-hook-form"
-import { COUNTRIES, COUNTRY_NAME_TO_DIAL } from "./countries"
+import { COUNTRY_NAME_TO_DIAL } from "./countries"
 import { Input } from "@/components/ui/input"
 
 // Simple E.164-ish validation: starts with +, digits, length 7-15

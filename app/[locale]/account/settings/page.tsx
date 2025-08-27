@@ -7,7 +7,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useAction } from "next-safe-action/hooks";
-import { upsertAddress, deleteAddress } from "@/actions/account";
+import { upsertAddress } from "@/actions/account";
 
 export default function SettingsPage() {
     const t = useTranslations("account")

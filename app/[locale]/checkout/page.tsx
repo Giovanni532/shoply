@@ -1,8 +1,7 @@
 import CheckoutForm from "@/components/checkout/checkout-form";
 import CheckoutSummary from "@/components/checkout/checkout-summary";
 import CheckoutGuard from "@/components/checkout/checkout-guard";
-import { redirect } from "next/navigation";
-import { cookies } from "next/headers";
+
 
 export default function CheckoutPage() {
     // Note: impossible to SSR-check Zustand cart. For UX, we can block the

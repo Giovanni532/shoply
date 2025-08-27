@@ -38,7 +38,7 @@ export default function ProfilePage() {
                             <FormItem>
                                 <FormLabel>{t("profile.name")}</FormLabel>
                                 <FormControl>
-                                    <Input {...field} placeholder={useTranslations("common")("namePlaceholder")} />
+                                    <Input {...field} placeholder={t("namePlaceholder")} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>

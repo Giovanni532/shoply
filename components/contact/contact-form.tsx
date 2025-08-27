@@ -19,7 +19,7 @@ export default function ContactForm() {
         resolver: zodResolver(contactSchema),
         defaultValues: { name: "", email: "", message: "" },
     })
-    const { execute, isPending, result } = useAction(sendContactMessage, {
+    const { execute, isPending } = useAction(sendContactMessage, {
         onSuccess: () => toast.success(t("success")),
         onError: () => toast.error(t("error")),
     })
