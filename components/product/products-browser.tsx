@@ -61,7 +61,7 @@ export default function ProductsBrowser({ products, categories }: { products: Pr
                 </Select>
             </div>
 
-            <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-8 flex flex-wrap gap-8 justify-center items-center">
                 {filtered.map(p => (
                     <ProductCard key={p.id} {...p} />
                 ))}
