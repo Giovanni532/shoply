@@ -3,7 +3,7 @@ import { authActionClient, ActionError } from "@/lib/safe-action";
 import { checkoutSchema } from "@/validations/checkout";
 import { db } from "@/lib/drizzle";
 import { address, order, orderItem, payment, product as productTable } from "@/db/schema";
-import { and, eq, gte, inArray, sql } from "drizzle-orm";
+import { and, eq, gte, inArray, isNull, sql } from "drizzle-orm";
 
 export const createCheckout = authActionClient
     .schema(checkoutSchema)
@@ -12,7 +12,7 @@ export const createCheckout = authActionClient
 
         // Fusionne les lignes d'un même produit (un panier modifié à la main ne doit rien casser)
         const quantities = new Map<string, number>();
-        for (const i of parsedInput.items) quantities.set(i.productId, Math.min(999, (quantities.get(i.productId) ?? 0) + i.quantity));
+        for (const i of parsedInput.items) quantities.set(i.productId, Math.min(10, (quantities.get(i.productId) ?? 0) + i.quantity));
         const ids = [...quantities.keys()];
 
         // Prix et stock viennent toujours de la base, jamais du client
@@ -51,6 +51,8 @@ export const createCheckout = authActionClient
                     eq(address.postalCode, fields.postalCode),
                     eq(address.city, fields.city),
                     eq(address.country, fields.country),
+                    fields.line2 === null ? isNull(address.line2) : eq(address.line2, fields.line2),
+                    fields.phone === null ? isNull(address.phone) : eq(address.phone, fields.phone),
                 ))
                 .limit(1);
             const shippingId = existing[0]?.id ?? crypto.randomUUID();

@@ -1,12 +1,11 @@
 import { and, eq } from "drizzle-orm"
 import type { Metadata } from "next"
-import { headers } from "next/headers"
 import { getLocale, getTranslations } from "next-intl/server"
 import { StagedLamp } from "@/components/lamp/staged-lamp"
 import { Button } from "@/components/ui/button"
 import { order } from "@/db/schema"
 import { Link } from "@/i18n/navigation"
-import { auth } from "@/lib/auth"
+import { getServerSession } from "@/lib/session"
 import { db } from "@/lib/drizzle"
 import { formatPrice, orderRef } from "@/lib/format"
 import { paths } from "@/paths"
@@ -17,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function CheckoutSuccessPage({ searchParams }: { searchParams: Promise<{ order?: string }> }) {
-  const [{ order: orderId }, session, t, locale] = await Promise.all([searchParams, auth.api.getSession({ headers: await headers() }), getTranslations("checkout"), getLocale()])
+  const [{ order: orderId }, session, t, locale] = await Promise.all([searchParams, getServerSession(), getTranslations("checkout"), getLocale()])
 
   // La commande n'est affichée qu'à son propriétaire
   const placed =

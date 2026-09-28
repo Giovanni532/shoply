@@ -58,7 +58,7 @@ export function SignupForm() {
             name: `${firstName.trim()} ${lastName.trim()}`,
         });
         if (error) {
-            toast.error(error.message || t("errorSignup"));
+            toast.error(t("errorSignup"));
             setIsLoading(false);
             return;
         }

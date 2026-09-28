@@ -1,10 +1,9 @@
 import { desc, eq } from "drizzle-orm"
 import type { Metadata } from "next"
-import { headers } from "next/headers"
 import { getTranslations } from "next-intl/server"
 import { AddressBook } from "@/components/account/address-book"
 import { address } from "@/db/schema"
-import { auth } from "@/lib/auth"
+import { getServerSession } from "@/lib/session"
 import { db } from "@/lib/drizzle"
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -13,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function SettingsPage() {
-  const [session, t] = await Promise.all([auth.api.getSession({ headers: await headers() }), getTranslations("account")])
+  const [session, t] = await Promise.all([getServerSession(), getTranslations("account")])
   if (!session?.user?.id) return null
 
   const addresses = await db

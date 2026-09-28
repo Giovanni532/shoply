@@ -2,18 +2,20 @@ import { z } from "zod";
 
 export const checkoutItemSchema = z.object({
     productId: z.string().min(1),
-    quantity: z.number().int().min(1).max(999),
+    // 10 par modèle et par commande : le paiement est simulé, sans limite
+    // une seule commande vidait le stock de la boutique pour tout le monde
+    quantity: z.number().int().min(1).max(10),
 });
 
 export const checkoutSchema = z.object({
-    items: z.array(checkoutItemSchema).min(1),
+    items: z.array(checkoutItemSchema).min(1).max(20),
     shipping: z.object({
-        fullName: z.string().min(2, { message: "fullNameMin" }),
-        line1: z.string().min(3, { message: "addressMin" }),
-        line2: z.string().optional().nullable(),
-        city: z.string().min(2, { message: "cityMin" }),
-        postalCode: z.string().min(2, { message: "postalMin" }),
-        country: z.string().min(2, { message: "countryMin" }),
+        fullName: z.string().min(2, { message: "fullNameMin" }).max(120),
+        line1: z.string().min(3, { message: "addressMin" }).max(200),
+        line2: z.string().max(200).optional().nullable(),
+        city: z.string().min(2, { message: "cityMin" }).max(120),
+        postalCode: z.string().min(2, { message: "postalMin" }).max(20),
+        country: z.string().min(2, { message: "countryMin" }).max(80),
         phone: z.string().regex(/^\+[1-9]\d{6,14}$/, { message: "phoneInvalid" }).optional().nullable(),
     }),
 });

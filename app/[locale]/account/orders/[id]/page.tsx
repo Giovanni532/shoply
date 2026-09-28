@@ -1,13 +1,12 @@
 import { and, eq } from "drizzle-orm"
 import { ArrowLeft } from "lucide-react"
 import type { Metadata } from "next"
-import { headers } from "next/headers"
 import { getLocale, getTranslations } from "next-intl/server"
 import { StatusBadge } from "@/components/account/status-badge"
 import { LampThumb } from "@/components/cart/cart-line"
 import { address, order, orderItem, product } from "@/db/schema"
 import { Link } from "@/i18n/navigation"
-import { auth } from "@/lib/auth"
+import { getServerSession } from "@/lib/session"
 import { getModel } from "@/lib/catalog"
 import { db } from "@/lib/drizzle"
 import { formatDate, formatPrice, orderRef } from "@/lib/format"
@@ -21,7 +20,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 export default async function OrderDetailsPage({ params }: Params) {
-  const [{ id }, session, t, tc, locale] = await Promise.all([params, auth.api.getSession({ headers: await headers() }), getTranslations("account"), getTranslations("cart"), getLocale()])
+  const [{ id }, session, t, tc, locale] = await Promise.all([params, getServerSession(), getTranslations("account"), getTranslations("cart"), getLocale()])
   if (!session?.user?.id) return null
 
   // Filtré sur le propriétaire : l'id d'une commande ne suffit pas à la lire

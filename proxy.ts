@@ -14,7 +14,7 @@ export function proxy(req: NextRequest) {
 
     // Auth guard for account pages (works with /:locale/account/*)
     const pathname = req.nextUrl.pathname;
-    const isAccountPath = pathname.includes("/account");
+    const isAccountPath = /^\/(?:fr|en)?\/?account(?:\/|$)/.test(pathname);
     if (isAccountPath) {
         const sessionCookie = getSessionCookie(req);
         if (!sessionCookie) {

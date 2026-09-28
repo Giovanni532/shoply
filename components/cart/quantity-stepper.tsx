@@ -9,7 +9,7 @@ export function QuantityStepper({
   onDecrease,
   onIncrease,
   min = 1,
-  max = 99,
+  max = 10,
   size = "md",
   className,
 }: {

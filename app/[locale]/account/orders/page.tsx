@@ -1,14 +1,13 @@
 import { desc, eq, inArray } from "drizzle-orm"
 import { ChevronRight } from "lucide-react"
 import type { Metadata } from "next"
-import { headers } from "next/headers"
 import { getLocale, getTranslations } from "next-intl/server"
 import { StatusBadge } from "@/components/account/status-badge"
 import { LampThumb } from "@/components/cart/cart-line"
 import { Button } from "@/components/ui/button"
 import { order, orderItem, product } from "@/db/schema"
 import { Link } from "@/i18n/navigation"
-import { auth } from "@/lib/auth"
+import { getServerSession } from "@/lib/session"
 import { db } from "@/lib/drizzle"
 import { formatDate, formatPrice, orderRef } from "@/lib/format"
 import { paths } from "@/paths"
@@ -19,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function OrdersPage() {
-  const [session, t, locale] = await Promise.all([auth.api.getSession({ headers: await headers() }), getTranslations("account"), getLocale()])
+  const [session, t, locale] = await Promise.all([getServerSession(), getTranslations("account"), getLocale()])
   if (!session?.user?.id) return null
 
   const orders = await db

@@ -24,6 +24,6 @@ export const orderRef = (id: string) => id.slice(0, 8).toUpperCase()
 
 /** Chemin de retour après connexion : uniquement interne, jamais une URL externe */
 export function safeRedirect(from: string | null | undefined, fallback = "/") {
-  if (!from || !from.startsWith("/") || from.startsWith("//") || from.includes("\\")) return fallback
+  if (!from || !from.startsWith("/") || from.startsWith("//") || from.includes("\\") || /[\u0000-\u001f\u007f]/.test(from)) return fallback
   return from
 }

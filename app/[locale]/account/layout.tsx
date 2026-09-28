@@ -1,13 +1,12 @@
-import { headers } from "next/headers"
 import { getLocale, getTranslations } from "next-intl/server"
 import { AccountNav } from "@/components/account/account-nav"
 import { redirect } from "@/i18n/navigation"
-import { auth } from "@/lib/auth"
+import { getServerSession } from "@/lib/session"
 import { formatDate } from "@/lib/format"
 import { paths } from "@/paths"
 
 export default async function AccountLayout({ children }: { children: React.ReactNode }) {
-  const [session, t, locale] = await Promise.all([auth.api.getSession({ headers: await headers() }), getTranslations("account"), getLocale()])
+  const [session, t, locale] = await Promise.all([getServerSession(), getTranslations("account"), getLocale()])
   // Le proxy redirige déjà sans cookie ; ici on couvre une session expirée
   if (!session?.user) return redirect({ href: `${paths.auth.login}?from=${encodeURIComponent(paths.account.orders)}`, locale })
 

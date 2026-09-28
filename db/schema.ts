@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
+import { index, sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
 
 export const user = sqliteTable("user", {
     id: text('id').primaryKey(),
@@ -19,7 +19,7 @@ export const session = sqliteTable("session", {
     ipAddress: text('ip_address'),
     userAgent: text('user_agent'),
     userId: text('user_id').notNull().references(() => user.id, { onDelete: 'cascade' })
-});
+}, (t) => [index("session_user_idx").on(t.userId)]);
 
 export const account = sqliteTable("account", {
     id: text('id').primaryKey(),
@@ -35,7 +35,7 @@ export const account = sqliteTable("account", {
     password: text('password'),
     createdAt: integer('created_at', { mode: 'timestamp' }).notNull(),
     updatedAt: integer('updated_at', { mode: 'timestamp' }).notNull()
-});
+}, (t) => [index("account_user_idx").on(t.userId)]);
 
 export const verification = sqliteTable("verification", {
     id: text('id').primaryKey(),
@@ -80,7 +80,7 @@ export const productImage = sqliteTable("product_image", {
     position: integer('position').$defaultFn(() => 0).notNull(),
     createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => /* @__PURE__ */ new Date()).notNull(),
     updatedAt: integer('updated_at', { mode: 'timestamp' }).$defaultFn(() => /* @__PURE__ */ new Date()).notNull()
-});
+}, (t) => [index("product_image_product_idx").on(t.productId)]);
 
 export const address = sqliteTable("address", {
     id: text('id').primaryKey(),
@@ -94,7 +94,7 @@ export const address = sqliteTable("address", {
     phone: text('phone'),
     createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => /* @__PURE__ */ new Date()).notNull(),
     updatedAt: integer('updated_at', { mode: 'timestamp' }).$defaultFn(() => /* @__PURE__ */ new Date()).notNull()
-});
+}, (t) => [index("address_user_idx").on(t.userId)]);
 
 export const order = sqliteTable("order", {
     id: text('id').primaryKey(),
@@ -108,7 +108,7 @@ export const order = sqliteTable("order", {
     billingAddressId: text('billing_address_id').references(() => address.id, { onDelete: 'set null' }),
     createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => /* @__PURE__ */ new Date()).notNull(),
     updatedAt: integer('updated_at', { mode: 'timestamp' }).$defaultFn(() => /* @__PURE__ */ new Date()).notNull()
-});
+}, (t) => [index("order_user_created_idx").on(t.userId, t.createdAt)]);
 
 export const orderItem = sqliteTable("order_item", {
     id: text('id').primaryKey(),
@@ -119,7 +119,7 @@ export const orderItem = sqliteTable("order_item", {
     quantity: integer('quantity').$defaultFn(() => 1).notNull(),
     createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => /* @__PURE__ */ new Date()).notNull(),
     updatedAt: integer('updated_at', { mode: 'timestamp' }).$defaultFn(() => /* @__PURE__ */ new Date()).notNull()
-});
+}, (t) => [index("order_item_order_idx").on(t.orderId)]);
 
 export const payment = sqliteTable("payment", {
     id: text('id').primaryKey(),
@@ -131,7 +131,7 @@ export const payment = sqliteTable("payment", {
     currency: text('currency').$defaultFn(() => 'CHF').notNull(),
     createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => /* @__PURE__ */ new Date()).notNull(),
     updatedAt: integer('updated_at', { mode: 'timestamp' }).$defaultFn(() => /* @__PURE__ */ new Date()).notNull()
-});
+}, (t) => [index("payment_order_idx").on(t.orderId)]);
 // Export du schéma complet pour Better Auth et Drizzle
 export const schema = {
     user,

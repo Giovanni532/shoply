@@ -16,7 +16,7 @@ export function PurchasePanel({ product }: { product: ProductView }) {
   const add = useAddToCart()
   const [quantity, setQuantity] = useState(1)
   const soldOut = product.stock <= 0
-  const max = Math.max(1, Math.min(99, product.stock))
+  const max = Math.max(1, Math.min(10, product.stock))
 
   return (
     <div className="space-y-4">

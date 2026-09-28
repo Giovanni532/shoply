@@ -1,10 +1,9 @@
 import type { Metadata } from "next"
-import { headers } from "next/headers"
 import { getTranslations } from "next-intl/server"
 import { CheckoutView } from "@/components/checkout/checkout-view"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/i18n/navigation"
-import { auth } from "@/lib/auth"
+import { getServerSession } from "@/lib/session"
 import { paths } from "@/paths"
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -13,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function CheckoutPage() {
-  const [session, t] = await Promise.all([auth.api.getSession({ headers: await headers() }), getTranslations("checkout")])
+  const [session, t] = await Promise.all([getServerSession(), getTranslations("checkout")])
   const from = encodeURIComponent(paths.checkout)
 
   return (

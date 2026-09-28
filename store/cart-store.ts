@@ -27,7 +27,7 @@ type CartActions = {
 };
 
 function clampQuantity(quantity: number): number {
-    return Math.max(1, Math.min(999, Math.floor(quantity)));
+    return Math.max(1, Math.min(10, Math.floor(quantity)));
 }
 
 export const useCartStore = create<CartState & CartActions>()(
