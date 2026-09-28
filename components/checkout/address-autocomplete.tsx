@@ -85,12 +85,12 @@ export default function AddressAutocomplete() {
     if (!open) return null
 
     return (
-        <div className={cn("mt-1 rounded-md border bg-popover text-popover-foreground shadow")}>
+        <div className={cn("mt-1 overflow-hidden rounded-md border bg-popover shadow-lg")}>
             <ul className="max-h-60 overflow-auto p-1 text-sm">
                 {items.map((s, idx) => (
                     <li
                         key={idx}
-                        className="cursor-pointer rounded px-2 py-1 hover:bg-accent"
+                        className="cursor-pointer rounded-sm px-3 py-2 text-muted-foreground hover:bg-secondary hover:text-foreground"
                         onClick={() => applySuggestion(s)}
                     >
                         {s.display_name}

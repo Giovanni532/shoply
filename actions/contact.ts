@@ -12,7 +12,7 @@ export const sendContactMessage = safeAction
             const at = new Date().toISOString();
             const summary = `Message reçu de ${name} <${email}> (${message.length} caractères)`;
             return { ok: true as const, received: { name, email, message }, at, summary };
-        } catch (e) {
+        } catch {
             throw new ActionError("CONTACT_FAILED");
         }
     });

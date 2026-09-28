@@ -1,225 +1,402 @@
 {
+  "meta": {
+    "title": "Shoply — Flashlights",
+    "description": "Three machined-aluminium flashlights, rechargeable over USB-C. Classic, Pro and Mini: pick your light."
+  },
   "common": {
     "home": "Home",
-    "products": "Products",
+    "products": "Flashlights",
+    "about": "The workshop",
     "contact": "Contact",
-    "about": "About",
-    "signIn": "Sign In",
-    "getStarted": "Get Started",
+    "cart": "Cart",
+    "account": "My account",
+    "signIn": "Sign in",
+    "signUp": "Create account",
     "signOut": "Sign out",
-    "namePlaceholder": "First and last name"
+    "menu": "Menu",
+    "close": "Close",
+    "skip": "Skip to content",
+    "back": "Back",
+    "toDark": "Switch to night theme",
+    "toLight": "Switch to day theme",
+    "language": "Language",
+    "mainNav": "Main navigation"
   },
-  "auth": {
-    "signIn": "Sign In",
-    "signUp": "Sign Up",
-    "email": "Email",
-    "password": "Password",
-    "submit": "Sign In",
-    "signingIn": "Signing in...",
-    "trans": "or continue with",
-    "endTitle": "Don't have an account?",
-    "endLinkText": "Create an account",
-    "loginDescription": "Sign in to access your account and enjoy your past orders.",
-    "signUpDescription": "Create your account to get started",
-    "name": "First and last name",
-    "firstNamePlaceholder": "First name",
-    "lastNamePlaceholder": "Last name",
-    "emailPlaceholder": "your@email.com",
-    "passwordPlaceholder": "••••••••",
-    "confirmPassword": "Confirm password",
-    "passwordStrengthLabel": "Password strength:",
-    "passwordStrength": {
-      "veryWeak": "Very weak",
-      "weak": "Weak",
-      "medium": "Medium",
-      "strong": "Strong",
-      "veryStrong": "Very strong"
-    },
-    "passwordCriteria": {
-      "length": "At least 8 characters",
-      "lowercase": "One lowercase letter",
-      "uppercase": "One uppercase letter",
-      "number": "One number",
-      "special": "One special character"
-    },
-    "createAccount": "Create account",
-    "creatingAccount": "Creating account...",
-    "signupEndTitle": "Already have an account?",
-    "signupEndLinkText": "Sign in",
-
-    "errorPasswordMismatch": "Passwords do not match",
-    "errorPasswordWeak": "Password must be stronger",
-    "errorMissingName": "Please fill in first and last name",
-    "successAccountCreated": "Account created successfully!",
-    "errorSignup": "Error during sign up",
-    "errorGeneric": "An error occurred",
-    "signupSocialSoon": "{provider} sign-up coming soon",
-    "loginSuccess": "Login successful!",
-    "loginError": "Login error",
-    "loginSocialSoon": "{provider} login coming soon"
+  "footer": {
+    "tagline": "Flashlights built to last, designed for the night.",
+    "shop": "Shop",
+    "help": "Help",
+    "account": "Account",
+    "demo": "Demo store: orders are real inside the app, payment is simulated.",
+    "by": "Designed and built by",
+    "rights": "© {year} Shoply"
   },
   "hero": {
-    "title": "Shop smarter, discover our best products",
-    "subtitle": "Great deals, fast delivery and quality service.",
-    "ctaPrimary": "Browse products",
-    "ctaSecondary": "Learn more"
+    "eyebrow": "2026 collection · Three models",
+    "title": "Light what matters.",
+    "subtitle": "Machined aluminium, high-efficiency LEDs and USB-C charging. Three flashlights, one obsession: light that never lets you down.",
+    "ctaPrimary": "Shop flashlights",
+    "ctaSecondary": "Compare the range",
+    "hint": "Move your mouse: the torch follows you",
+    "hintTouch": "The torch sweeps the night",
+    "stats": {
+      "lumens": "lumens max",
+      "range": "beam distance",
+      "ipx": "waterproof",
+      "warranty": "warranty"
+    }
+  },
+  "home": {
+    "range": {
+      "eyebrow": "The range",
+      "title": "Three torches, three different nights.",
+      "lede": "From the Mini on your keyring to the Pro that lights up a football pitch: every model is machined, tested and guaranteed for five years.",
+      "all": "All flashlights"
+    },
+    "explorer": {
+      "eyebrow": "Light, measured",
+      "title": "How far does your torch reach?",
+      "lede": "Pick a model: the beam stretches to scale with its real throw, measured to the ANSI FL1 standard.",
+      "lumens": "Output",
+      "range": "Throw",
+      "runtime": "Max runtime",
+      "hours": "{count} h",
+      "meters": "{count} m",
+      "see": "See the {name}"
+    },
+    "pillars": {
+      "eyebrow": "Craft",
+      "title": "Designed for the night, built to last.",
+      "aluminium": { "title": "Machined aluminium", "desc": "Cut from solid stock, anodised or raw, to survive the drops." },
+      "usbc": { "title": "USB-C charging", "desc": "The same cable as your phone. No more disposable batteries." },
+      "waterproof": { "title": "Waterproof", "desc": "From driving rain (IPX4) to full immersion (IPX8)." },
+      "warranty": { "title": "5-year warranty", "desc": "And spare parts for as long as the torch exists." }
+    },
+    "services": {
+      "shipping": { "title": "Free shipping", "desc": "Ships within 24 h in Switzerland" },
+      "returns": { "title": "30-day returns", "desc": "No questions asked" },
+      "secure": { "title": "Secure payment", "desc": "Simulated in this demo" },
+      "support": { "title": "Human support", "desc": "Reply within 24 h" }
+    },
+    "cta": {
+      "title": "Winter nights come early.",
+      "subtitle": "Find the torch that will stay with you for the next ten years.",
+      "primary": "Choose my torch"
+    }
+  },
+  "product": {
+    "category": "Flashlight",
+    "breadcrumb": "Flashlights",
+    "lumens": "Output",
+    "range": "Throw",
+    "runtime": "Runtime",
+    "ipx": "Waterproofing",
+    "weight": "Weight",
+    "length": "Length",
+    "battery": "Battery",
+    "charge": "Charging",
+    "finish": "Finish",
+    "price": "Price",
+    "unitLumens": "{count} lm",
+    "unitMeters": "{count} m",
+    "unitHours": "{count} h",
+    "unitGrams": "{count} g",
+    "unitMm": "{count} mm",
+    "specs": "Specifications",
+    "inBox": "In the box",
+    "modes": "Modes",
+    "mode": {
+      "eco": "Eco",
+      "normal": "Normal",
+      "turbo": "Turbo"
+    },
+    "modeDetail": "{lumens} lm · {hours} h",
+    "lightOn": "Turn on",
+    "lightOff": "Turn off",
+    "add": "Add to cart",
+    "addShort": "Add",
+    "added": "{name} added to your cart",
+    "view": "View details",
+    "inStock": "In stock · ships within 24 h",
+    "lowStock": "Only {count} left",
+    "outOfStock": "Out of stock",
+    "quantity": "Quantity",
+    "decrease": "Remove one",
+    "increase": "Add one",
+    "freeShipping": "Free shipping in Switzerland",
+    "returns": "30 days to change your mind",
+    "warranty": "5-year warranty",
+    "others": "The other models"
+  },
+  "products": {
+    "eyebrow": "Catalogue",
+    "title": "The flashlights",
+    "lede": "Three models machined from solid stock, from keyring to pocket floodlight.",
+    "search": "Search flashlights",
+    "sort": "Sort",
+    "sortNew": "Newest",
+    "sortPriceAsc": "Price: low to high",
+    "sortPriceDesc": "Price: high to low",
+    "sortPower": "Output",
+    "count": "{count, plural, =0 {No flashlights} one {# flashlight} other {# flashlights}}",
+    "empty": "No flashlight matches “{query}”.",
+    "reset": "Clear search",
+    "compare": {
+      "eyebrow": "Comparison",
+      "title": "Compare the models",
+      "lede": "All measurements taken in turbo mode with a full battery."
+    }
   },
   "cart": {
     "open": "Open cart",
-    "title": "Your cart",
-    "empty": "Your cart is empty",
+    "title": "Cart",
+    "count": "{count, plural, =0 {empty} one {# item} other {# items}}",
+    "empty": "Your cart is empty.",
+    "emptyText": "Nothing's shining here yet.",
+    "emptyCta": "Discover the flashlights",
     "subtotal": "Subtotal",
-    "checkout": "Checkout"
+    "shipping": "Shipping",
+    "shippingFree": "Free",
+    "total": "Total",
+    "taxes": "VAT included",
+    "checkout": "Checkout",
+    "viewCart": "View cart",
+    "remove": "Remove {name}",
+    "continue": "Continue shopping",
+    "pageTitle": "Your cart"
   },
-  "home": {
-    "features": {
-      "title": "Why choose Shoply?",
-      "fastShipping": { "title": "Fast shipping", "desc": "Ships in 24-48h" },
-      "securePayment": { "title": "Secure payment", "desc": "Encryption and 3D Secure" },
-      "easyReturns": { "title": "Easy returns", "desc": "30 days to change your mind" },
-      "installments": { "title": "Pay in installments", "desc": "Up to 4x, no fees" }
-    },
-    "cta": {
-      "title": "Ready to discover our best deals?",
-      "subtitle": "Quality products at the best price, curated for you.",
-      "primary": "Browse products",
-      "secondary": "Learn more"
-    }
-  }
-  ,
-  "products": {
-    "title": "Our products",
-    "search": "Search a product",
-    "category": "Category",
-    "allCategories": "All categories",
-    "sort": "Sort",
-    "sortNew": "New arrivals",
-    "sortPriceAsc": "Price: Low to High",
-    "sortPriceDesc": "Price: High to Low"
-  }
-  ,
-  "contact": {
-    "title": "Contact us",
-    "subtitle": "Have a question? Send us a message and we'll get back to you.",
-    "name": "Name",
-    "email": "Email",
-    "message": "Message",
-    "submit": "Send",
-    "success": "Message sent! We'll reply shortly.",
-    "error": "Something went wrong. Please try again.",
-    "placeholder": {
-      "name": "Your name",
-      "email": "you@example.com",
-      "message": "Write your message here..."
-    },
-    "errors": {
-      "nameMin": "Name must be at least 2 characters",
-      "emailInvalid": "Invalid email address",
-      "messageMin": "Message must be at least 10 characters"
-    }
-  }
-  ,
-  "about": {
-    "title": "About Shoply",
-    "subtitle": "Our mission is to make e‑commerce simple, fast and delightful.",
-    "p1": "We curate quality products at the best price and ship them fast.",
-    "p2": "Our team is based in Europe and improves your experience every day.",
-    "p3": "Thank you for your trust — enjoy your visit!"
-  }
-  ,
   "checkout": {
-    "title": "Checkout",
+    "eyebrow": "Checkout",
+    "title": "Complete your order",
+    "shippingSection": "Shipping",
+    "paymentSection": "Payment",
+    "paymentNote": "This store is a demo: no payment method is requested or stored. Your order will be marked as paid.",
     "fullName": "Full name",
     "country": "Country",
     "countryPlaceholder": "Select a country",
     "address": "Address",
     "addressPlaceholder": "Street and number",
-    "line2": "Address line 2",
-    "postalCode": "Postal code",
+    "line2": "Apartment, suite (optional)",
+    "postalCode": "Postcode",
     "city": "City",
-    "phone": "Phone",
-    "phoneInvalid": "International format required (e.g. {dial}123456789)",
-    "fullNameMin": "Name must be at least 2 characters",
-    "addressMin": "Address must be at least 3 characters",
-    "cityMin": "City must be at least 2 characters",
-    "postalMin": "Postal code must be at least 2 characters",
-    "countryMin": "Country must be at least 2 characters",
-    "payNow": "Pay now",
+    "phone": "Phone (optional)",
+    "pay": "Pay {amount}",
+    "processing": "Processing…",
     "summaryTitle": "Your order",
     "subtotal": "Subtotal",
     "shipping": "Shipping",
     "total": "Total",
     "empty": "Your cart is empty.",
     "editCart": "Edit cart",
-    "simulatedNote": "Payment is simulated, no card data is stored.",
-    "successTitle": "Payment successful 🎉",
-    "successSubtitle": "Thank you for your order.",
+    "simulatedNote": "Simulated payment, no card details are requested.",
+    "loginRequired": {
+      "title": "Sign in to place your order",
+      "text": "An account lets you track your orders and keep your addresses. Your cart is waiting for you.",
+      "login": "Sign in",
+      "signup": "Create account"
+    },
+    "successEyebrow": "Order confirmed",
+    "successTitle": "Thank you, your torch is on its way.",
+    "successSubtitle": "We're preparing your parcel. You can track the order from your account.",
+    "successRef": "Reference",
+    "successOrder": "View order",
     "successCta": "Continue shopping",
-    "cancelTitle": "Payment canceled",
-    "cancelSubtitle": "Your order was not completed.",
+    "cancelEyebrow": "Order interrupted",
+    "cancelTitle": "The order didn't go through.",
+    "cancelSubtitle": "Nothing was charged. Your cart is saved: you can try again whenever you like.",
     "cancelCtaCart": "Back to cart",
-    "cancelCtaProducts": "Browse products",
+    "cancelCtaProducts": "Shop flashlights",
+    "errorStock": "Not enough stock for “{name}”. Please adjust the quantity.",
+    "errorGeneric": "The order failed. Please try again in a moment.",
     "errors": {
       "fullNameMin": "Name must be at least 2 characters",
       "addressMin": "Address must be at least 3 characters",
       "cityMin": "City must be at least 2 characters",
-      "postalMin": "Postal code must be at least 2 characters",
-      "countryMin": "Country must be at least 2 characters",
-      "phoneInvalid": "International format required (e.g. {dial}123456789)"
+      "postalMin": "Postcode must be at least 2 characters",
+      "countryMin": "Choose a country",
+      "phoneInvalid": "International format required (e.g. {dial}791234567)"
     }
-  }
-  ,
+  },
+  "auth": {
+    "signIn": "Sign in",
+    "signUp": "Create account",
+    "loginTitle": "Welcome back.",
+    "loginDescription": "Find your orders and saved addresses.",
+    "signUpTitle": "Join Shoply.",
+    "signUpDescription": "One account to order and track your torches.",
+    "panelTitle": "Every torch is hand-tested before it leaves.",
+    "panelText": "150 to 1,200 lumens, USB-C charging, five-year warranty.",
+    "email": "Email",
+    "password": "Password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "submit": "Sign in",
+    "signingIn": "Signing in…",
+    "endTitle": "No account yet?",
+    "endLinkText": "Create one",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "firstNamePlaceholder": "First name",
+    "lastNamePlaceholder": "Last name",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "••••••••",
+    "confirmPassword": "Confirm password",
+    "passwordStrengthLabel": "Strength",
+    "passwordStrength": {
+      "veryWeak": "Very weak",
+      "weak": "Weak",
+      "medium": "Fair",
+      "strong": "Strong",
+      "veryStrong": "Very strong"
+    },
+    "passwordCriteria": {
+      "length": "8 characters",
+      "lowercase": "A lowercase letter",
+      "uppercase": "An uppercase letter",
+      "number": "A number",
+      "special": "A special character"
+    },
+    "passwordMismatch": "Passwords don't match",
+    "createAccount": "Create my account",
+    "creatingAccount": "Creating…",
+    "signupEndTitle": "Already have an account?",
+    "signupEndLinkText": "Sign in",
+    "errorPasswordMismatch": "Passwords don't match",
+    "errorPasswordWeak": "Please choose a stronger password",
+    "errorMissingName": "Please enter your first and last name",
+    "successAccountCreated": "Account created, welcome!",
+    "errorSignup": "Couldn't create the account",
+    "errorGeneric": "Something went wrong",
+    "loginSuccess": "Signed in",
+    "loginError": "Incorrect email or password"
+  },
   "account": {
-    "profileTitle": "My profile",
-    "profileSubtitle": "Manage your personal information.",
-    "ordersTitle": "My orders",
-    "ordersSubtitle": "View your order history.",
-    "settingsTitle": "Settings",
-    "settingsSubtitle": "Your account preferences.",
+    "eyebrow": "My account",
+    "greeting": "Hello {name}",
+    "memberSince": "Customer since {date}",
     "menu": {
       "profile": "Profile",
       "orders": "Orders",
-      "settings": "Settings"
+      "settings": "Addresses"
     },
+    "profileTitle": "Profile",
+    "profileSubtitle": "The name used on your orders.",
     "profile": {
-      "name": "Name",
+      "name": "Full name",
+      "email": "Email",
       "save": "Save",
-      "saved": "Profile updated"
+      "saved": "Profile updated",
+      "error": "The update failed"
     },
+    "nameMin": "Name must be at least 2 characters",
+    "namePlaceholder": "First and last name",
+    "ordersTitle": "Orders",
+    "ordersSubtitle": "Your purchase history.",
     "orders": {
       "table": {
-        "id": "Order",
+        "id": "Reference",
         "date": "Date",
         "status": "Status",
+        "items": "Items",
         "total": "Total"
       },
-      "empty": "You don't have any orders yet.",
+      "itemsCount": "{count, plural, one {# item} other {# items}}",
+      "empty": "You haven't placed an order yet.",
+      "emptyCta": "Discover the flashlights",
+      "notFound": "This order can't be found.",
       "details": {
-        "title": "Order details",
+        "title": "Order",
+        "placed": "Placed on {date}",
         "items": "Items",
         "quantity": "Qty",
-        "price": "Price",
-        "back": "Back to orders"
+        "unit": "Unit price",
+        "price": "Amount",
+        "subtotal": "Subtotal",
+        "shipping": "Shipping",
+        "total": "Total",
+        "address": "Shipping address",
+        "back": "All orders"
       }
     },
+    "status": {
+      "pending": "Pending",
+      "paid": "Paid",
+      "shipped": "Shipped",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled"
+    },
+    "settingsTitle": "Addresses",
+    "settingsSubtitle": "Your saved shipping addresses.",
     "addresses": {
-      "title": "Addresses",
-      "add": "Add address",
+      "title": "Saved addresses",
+      "empty": "No saved addresses yet.",
+      "add": "Add an address",
       "delete": "Delete",
+      "deleteLabel": "Delete {name}'s address",
       "saved": "Address saved",
       "removed": "Address removed",
+      "error": "The operation failed",
       "form": {
         "fullName": "Full name",
         "line1": "Address",
-        "line2": "Address line 2",
+        "line2": "Apartment, suite",
         "city": "City",
-        "postalCode": "Postal code",
+        "postalCode": "Postcode",
         "country": "Country",
         "phone": "Phone",
-        "save": "Save"
+        "save": "Save address"
       }
     }
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "A question about a torch?",
+    "subtitle": "Choosing a model, warranty, spare parts: write to us and a human replies within 24 hours.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send message",
+    "sending": "Sending…",
+    "success": "Message sent! We'll get back to you soon.",
+    "error": "Something went wrong. Please try again.",
+    "demo": "Demo: the message is validated on the server but not sent to anyone.",
+    "infoTitle": "Reach us",
+    "hours": "Monday to Friday, 9 am – 6 pm",
+    "place": "Workshop in Geneva, Switzerland",
+    "placeholder": {
+      "name": "Your name",
+      "email": "you@example.com",
+      "message": "Tell us everything…"
+    },
+    "errors": {
+      "nameMin": "Name must be at least 2 characters",
+      "emailInvalid": "Invalid email",
+      "messageMin": "Message must be at least 10 characters"
+    }
+  },
+  "about": {
+    "eyebrow": "The workshop",
+    "title": "We make torches you don't throw away.",
+    "lede": "Shoply was born out of a simple frustration: cheap torches that die in their first winter.",
+    "p1": "Every model starts as a block of aluminium or copper, machined then anodised. LEDs are chosen for their efficiency, not for a number on the box.",
+    "p2": "Batteries can be replaced, and so can the seals. We keep spare parts for every torch sold, because a repaired torch is the greenest one there is.",
+    "p3": "Only three models: that's a choice. Better three perfectly tuned torches than a catalogue of fifty.",
+    "principles": {
+      "durable": { "title": "Durable", "desc": "6061 aluminium, C110 copper, tempered glass." },
+      "repairable": { "title": "Repairable", "desc": "Replaceable battery, seals and switch." },
+      "rechargeable": { "title": "Rechargeable", "desc": "USB-C across the range, zero disposable batteries." }
+    },
+    "figures": {
+      "tested": "torches hand-tested",
+      "warranty": "year warranty",
+      "parts": "spare parts in stock"
+    }
+  },
+  "notFound": {
+    "eyebrow": "Error 404",
+    "title": "Even at 1,200 lumens, this page can't be found.",
+    "text": "The link may be broken, or the page has moved.",
+    "cta": "Back to home",
+    "products": "Shop flashlights"
   }
 }
-
-

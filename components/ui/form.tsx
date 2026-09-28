@@ -135,9 +135,11 @@ function FormDescription({ className, ...props }: React.ComponentProps<"p">) {
   )
 }
 
-function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
+// `format` traduit la clé d'erreur renvoyée par le schéma zod (ex. "cityMin")
+function FormMessage({ className, format, ...props }: React.ComponentProps<"p"> & { format?: (message: string) => string }) {
   const { error, formMessageId } = useFormField()
-  const body = props.children ?? (error ? String(error?.message ?? "") : null)
+  const raw = error ? String(error?.message ?? "") : ""
+  const body = props.children ?? (raw ? (format ? format(raw) : raw) : null)
 
   if (!body) {
     return null
@@ -147,7 +149,7 @@ function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
     <p
       data-slot="form-message"
       id={formMessageId}
-      className={cn("text-destructive text-sm", className)}
+      className={cn("text-destructive text-[13px]", className)}
       {...props}
     >
       {body}

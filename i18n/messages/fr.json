@@ -1,223 +1,402 @@
 {
+  "meta": {
+    "title": "Shoply — Lampes de poche",
+    "description": "Trois lampes de poche en aluminium usiné, rechargeables en USB-C. Classic, Pro et Mini : choisissez votre lumière."
+  },
   "common": {
     "home": "Accueil",
-    "products": "Produits",
-    "about": "À propos",
+    "products": "Lampes",
+    "about": "L'atelier",
     "contact": "Contact",
-    "signIn": "Se connecter",
-    "getStarted": "Commencer",
-    "signOut": "Déconnexion",
-    "namePlaceholder": "Prénom et nom"
-  },
-  "auth": {
+    "cart": "Panier",
+    "account": "Mon compte",
     "signIn": "Se connecter",
     "signUp": "Créer un compte",
-    "email": "Email",
-    "password": "Mot de passe",
-    "submit": "Se connecter",
-    "signingIn": "Connexion...",
-    "trans": "ou continuer avec",
-    "endTitle": "Vous n'avez pas de compte ?",
-    "endLinkText": "Créer un compte",
-    "loginDescription": "Connectez-vous pour accéder à votre compte et profiter de vos commandes passées.",
-    "signUpDescription": "Créez votre compte pour commencer",
-    "name": "Prénom et nom",
-    "firstNamePlaceholder": "Prénom",
-    "lastNamePlaceholder": "Nom",
-    "emailPlaceholder": "votre@email.com",
-    "passwordPlaceholder": "••••••••",
-    "confirmPassword": "Confirmer le mot de passe",
-    "passwordStrengthLabel": "Force du mot de passe:",
-    "passwordStrength": {
-      "veryWeak": "Très faible",
-      "weak": "Faible",
-      "medium": "Moyen",
-      "strong": "Fort",
-      "veryStrong": "Très fort"
-    },
-    "passwordCriteria": {
-      "length": "Au moins 8 caractères",
-      "lowercase": "Une lettre minuscule",
-      "uppercase": "Une lettre majuscule",
-      "number": "Un chiffre",
-      "special": "Un caractère spécial"
-    },
-    "createAccount": "Créer un compte",
-    "creatingAccount": "Création du compte...",
-    "signupEndTitle": "Déjà un compte ?",
-    "signupEndLinkText": "Se connecter",
-
-    "errorPasswordMismatch": "Les mots de passe ne correspondent pas",
-    "errorPasswordWeak": "Le mot de passe doit être plus fort",
-    "errorMissingName": "Veuillez remplir le prénom et le nom",
-    "successAccountCreated": "Compte créé avec succès !",
-    "errorSignup": "Erreur lors de l'inscription",
-    "errorGeneric": "Une erreur est survenue",
-    "signupSocialSoon": "Inscription {provider} bientôt disponible",
-    "loginSuccess": "Connexion réussie !",
-    "loginError": "Erreur lors de la connexion",
-    "loginSocialSoon": "Connexion {provider} bientôt disponible"
+    "signOut": "Se déconnecter",
+    "menu": "Menu",
+    "close": "Fermer",
+    "skip": "Aller au contenu",
+    "back": "Retour",
+    "toDark": "Passer au thème nuit",
+    "toLight": "Passer au thème jour",
+    "language": "Langue",
+    "mainNav": "Navigation principale"
+  },
+  "footer": {
+    "tagline": "Des lampes de poche faites pour durer, pensées pour la nuit.",
+    "shop": "Boutique",
+    "help": "Aide",
+    "account": "Compte",
+    "demo": "Boutique de démonstration : les commandes sont réelles dans l'application, le paiement est simulé.",
+    "by": "Conçu et développé par",
+    "rights": "© {year} Shoply"
   },
   "hero": {
-    "title": "Achetez malin, découvrez nos meilleurs produits",
-    "subtitle": "Des offres exceptionnelles, une livraison rapide et un service de qualité.",
-    "ctaPrimary": "Voir les produits",
-    "ctaSecondary": "En savoir plus"
-  },
-  "cart": {
-    "open": "Ouvrir le panier",
-    "title": "Votre panier",
-    "empty": "Votre panier est vide",
-    "subtotal": "Sous-total",
-    "checkout": "Passer au paiement"
+    "eyebrow": "Collection 2026 · Trois modèles",
+    "title": "Éclairez ce qui compte.",
+    "subtitle": "Aluminium usiné, LED haute efficacité et recharge USB-C. Trois lampes de poche, une seule obsession : une lumière qui ne vous lâche pas.",
+    "ctaPrimary": "Voir les lampes",
+    "ctaSecondary": "Comparer la portée",
+    "hint": "Bougez la souris : la lampe vous suit",
+    "hintTouch": "La lampe balaie la nuit",
+    "stats": {
+      "lumens": "lumens max",
+      "range": "de portée",
+      "ipx": "étanche",
+      "warranty": "de garantie"
+    }
   },
   "home": {
-    "features": {
-      "title": "Pourquoi choisir Shoply ?",
-      "fastShipping": { "title": "Livraison rapide", "desc": "Expédié en 24-48h" },
-      "securePayment": { "title": "Paiement sécurisé", "desc": "Cryptage et 3D Secure" },
-      "easyReturns": { "title": "Retours faciles", "desc": "30 jours pour changer d'avis" },
-      "installments": { "title": "Paiement en plusieurs fois", "desc": "Jusqu'à 4x sans frais" }
+    "range": {
+      "eyebrow": "La gamme",
+      "title": "Trois lampes, trois nuits différentes.",
+      "lede": "De la Mini accrochée à vos clés à la Pro qui éclaire un terrain de foot : chaque modèle est usiné, testé et garanti cinq ans.",
+      "all": "Toutes les lampes"
+    },
+    "explorer": {
+      "eyebrow": "La lumière, mesurée",
+      "title": "Jusqu'où porte votre lampe ?",
+      "lede": "Choisissez un modèle : le faisceau s'étend à l'échelle de sa portée réelle, mesurée selon la norme ANSI FL1.",
+      "lumens": "Flux",
+      "range": "Portée",
+      "runtime": "Autonomie max",
+      "hours": "{count} h",
+      "meters": "{count} m",
+      "see": "Voir la {name}"
+    },
+    "pillars": {
+      "eyebrow": "Fabrication",
+      "title": "Conçues pour la nuit, construites pour durer.",
+      "aluminium": { "title": "Aluminium usiné", "desc": "Corps taillé dans la masse, anodisé ou brut, pour encaisser les chutes." },
+      "usbc": { "title": "Recharge USB-C", "desc": "Le même câble que votre téléphone. Fini les piles jetables." },
+      "waterproof": { "title": "Étanches", "desc": "De la pluie battante (IPX4) à l'immersion totale (IPX8)." },
+      "warranty": { "title": "Garantie 5 ans", "desc": "Et des pièces de rechange tant que la lampe existe." }
+    },
+    "services": {
+      "shipping": { "title": "Livraison offerte", "desc": "Expédiée sous 24 h en Suisse" },
+      "returns": { "title": "Retours 30 jours", "desc": "Sans justification" },
+      "secure": { "title": "Paiement sécurisé", "desc": "Simulé dans cette démo" },
+      "support": { "title": "Service humain", "desc": "Réponse sous 24 h" }
     },
     "cta": {
-      "title": "Prêt à découvrir nos meilleures offres ?",
-      "subtitle": "Des produits de qualité au meilleur prix, sélectionnés pour vous.",
-      "primary": "Voir les produits",
-      "secondary": "En savoir plus"
+      "title": "La nuit tombe tôt en hiver.",
+      "subtitle": "Trouvez la lampe qui vous accompagnera les dix prochaines années.",
+      "primary": "Choisir ma lampe"
     }
-  }
-  ,
+  },
+  "product": {
+    "category": "Lampe de poche",
+    "breadcrumb": "Lampes",
+    "lumens": "Flux lumineux",
+    "range": "Portée",
+    "runtime": "Autonomie",
+    "ipx": "Étanchéité",
+    "weight": "Poids",
+    "length": "Longueur",
+    "battery": "Batterie",
+    "charge": "Recharge",
+    "finish": "Finition",
+    "price": "Prix",
+    "unitLumens": "{count} lm",
+    "unitMeters": "{count} m",
+    "unitHours": "{count} h",
+    "unitGrams": "{count} g",
+    "unitMm": "{count} mm",
+    "specs": "Fiche technique",
+    "inBox": "Dans la boîte",
+    "modes": "Modes",
+    "mode": {
+      "eco": "Éco",
+      "normal": "Normal",
+      "turbo": "Turbo"
+    },
+    "modeDetail": "{lumens} lm · {hours} h",
+    "lightOn": "Allumer",
+    "lightOff": "Éteindre",
+    "add": "Ajouter au panier",
+    "addShort": "Ajouter",
+    "added": "{name} ajoutée au panier",
+    "view": "Voir la fiche",
+    "inStock": "En stock · expédiée sous 24 h",
+    "lowStock": "Plus que {count} en stock",
+    "outOfStock": "Rupture de stock",
+    "quantity": "Quantité",
+    "decrease": "Retirer une unité",
+    "increase": "Ajouter une unité",
+    "freeShipping": "Livraison offerte en Suisse",
+    "returns": "30 jours pour changer d'avis",
+    "warranty": "Garantie 5 ans",
+    "others": "Les autres modèles"
+  },
   "products": {
-    "title": "Nos produits",
-    "search": "Rechercher un produit",
-    "category": "Catégorie",
-    "allCategories": "Toutes les catégories",
+    "eyebrow": "Catalogue",
+    "title": "Les lampes",
+    "lede": "Trois modèles usinés dans la masse, du porte-clés au projecteur de poche.",
+    "search": "Rechercher une lampe",
     "sort": "Trier",
     "sortNew": "Nouveautés",
     "sortPriceAsc": "Prix croissant",
-    "sortPriceDesc": "Prix décroissant"
-  }
-  ,
-  "contact": {
-    "title": "Contactez-nous",
-    "subtitle": "Une question ? Envoyez-nous un message et nous reviendrons vers vous.",
-    "name": "Nom",
-    "email": "Email",
-    "message": "Message",
-    "submit": "Envoyer",
-    "success": "Message envoyé ! Nous vous répondrons rapidement.",
-    "error": "Une erreur est survenue. Veuillez réessayer.",
-    "placeholder": {
-      "name": "Votre nom",
-      "email": "vous@exemple.com",
-      "message": "Écrivez votre message ici..."
-    },
-    "errors": {
-      "nameMin": "Le nom doit contenir au moins 2 caractères",
-      "emailInvalid": "L'email est invalide",
-      "messageMin": "Le message doit contenir au moins 10 caractères"
+    "sortPriceDesc": "Prix décroissant",
+    "sortPower": "Puissance",
+    "count": "{count, plural, =0 {Aucune lampe} one {# lampe} other {# lampes}}",
+    "empty": "Aucune lampe ne correspond à « {query} ».",
+    "reset": "Effacer la recherche",
+    "compare": {
+      "eyebrow": "Comparatif",
+      "title": "Comparer les modèles",
+      "lede": "Toutes les mesures sont réalisées en mode turbo, batterie pleine."
     }
-  }
-  ,
-  "about": {
-    "title": "À propos de Shoply",
-    "subtitle": "Notre mission est de rendre l'e-commerce simple, rapide et agréable.",
-    "p1": "Nous sélectionnons des produits de qualité au meilleur prix et les livrons rapidement.",
-    "p2": "Notre équipe est basée en Europe et travaille chaque jour pour améliorer votre expérience.",
-    "p3": "Merci de votre confiance — et bonne visite !"
-  }
-  ,
+  },
+  "cart": {
+    "open": "Ouvrir le panier",
+    "title": "Panier",
+    "count": "{count, plural, =0 {vide} one {# article} other {# articles}}",
+    "empty": "Votre panier est vide.",
+    "emptyText": "Rien ne brille ici pour l'instant.",
+    "emptyCta": "Découvrir les lampes",
+    "subtotal": "Sous-total",
+    "shipping": "Livraison",
+    "shippingFree": "Offerte",
+    "total": "Total",
+    "taxes": "TVA incluse",
+    "checkout": "Commander",
+    "viewCart": "Voir le panier",
+    "remove": "Retirer {name}",
+    "continue": "Continuer mes achats",
+    "pageTitle": "Votre panier"
+  },
   "checkout": {
-    "title": "Paiement",
+    "eyebrow": "Commande",
+    "title": "Finaliser la commande",
+    "shippingSection": "Livraison",
+    "paymentSection": "Paiement",
+    "paymentNote": "Cette boutique est une démonstration : aucun moyen de paiement n'est demandé ni enregistré. Votre commande sera marquée comme payée.",
     "fullName": "Nom complet",
     "country": "Pays",
     "countryPlaceholder": "Sélectionner un pays",
     "address": "Adresse",
-    "addressPlaceholder": "Numéro et rue",
-    "line2": "Complément",
-    "postalCode": "Code postal",
-    "city": "Ville",
-    "phone": "Téléphone",
-    "phoneInvalid": "Format international requis (ex: {dial}123456789)",
-    "fullNameMin": "Le nom doit contenir au moins 2 caractères",
-    "addressMin": "L'adresse doit contenir au moins 3 caractères",
-    "cityMin": "La ville doit contenir au moins 2 caractères",
-    "postalMin": "Le code postal doit contenir au moins 2 caractères",
-    "countryMin": "Le pays doit contenir au moins 2 caractères",
-    "payNow": "Payer maintenant",
+    "addressPlaceholder": "Rue et numéro",
+    "line2": "Complément (facultatif)",
+    "postalCode": "NPA",
+    "city": "Localité",
+    "phone": "Téléphone (facultatif)",
+    "pay": "Payer {amount}",
+    "processing": "Traitement…",
     "summaryTitle": "Votre commande",
     "subtotal": "Sous-total",
     "shipping": "Livraison",
     "total": "Total",
     "empty": "Votre panier est vide.",
     "editCart": "Modifier le panier",
-    "simulatedNote": "Paiement simulé, aucune donnée de carte n'est enregistrée.",
-    "successTitle": "Paiement réussi 🎉",
-    "successSubtitle": "Merci pour votre commande.",
-    "successCta": "Continuer vos achats",
-    "cancelTitle": "Paiement annulé",
-    "cancelSubtitle": "Votre commande n'a pas été finalisée.",
+    "simulatedNote": "Paiement simulé, aucune donnée bancaire n'est demandée.",
+    "loginRequired": {
+      "title": "Connectez-vous pour commander",
+      "text": "Un compte permet de suivre vos commandes et de retrouver vos adresses. Votre panier vous attend.",
+      "login": "Se connecter",
+      "signup": "Créer un compte"
+    },
+    "successEyebrow": "Commande confirmée",
+    "successTitle": "Merci, votre lampe est en route.",
+    "successSubtitle": "Nous préparons votre colis. Vous pouvez suivre la commande depuis votre compte.",
+    "successRef": "Référence",
+    "successOrder": "Voir la commande",
+    "successCta": "Continuer mes achats",
+    "cancelEyebrow": "Commande interrompue",
+    "cancelTitle": "La commande n'a pas abouti.",
+    "cancelSubtitle": "Aucun montant n'a été débité. Votre panier est conservé : vous pouvez réessayer quand vous voulez.",
     "cancelCtaCart": "Retour au panier",
-    "cancelCtaProducts": "Voir les produits",
+    "cancelCtaProducts": "Voir les lampes",
+    "errorStock": "Stock insuffisant pour « {name} ». Ajustez la quantité.",
+    "errorGeneric": "La commande a échoué. Réessayez dans un instant.",
     "errors": {
       "fullNameMin": "Le nom doit contenir au moins 2 caractères",
       "addressMin": "L'adresse doit contenir au moins 3 caractères",
-      "cityMin": "La ville doit contenir au moins 2 caractères",
-      "postalMin": "Le code postal doit contenir au moins 2 caractères",
-      "countryMin": "Le pays doit contenir au moins 2 caractères",
-      "phoneInvalid": "Format international requis (ex: {dial}123456789)"
+      "cityMin": "La localité doit contenir au moins 2 caractères",
+      "postalMin": "Le NPA doit contenir au moins 2 caractères",
+      "countryMin": "Choisissez un pays",
+      "phoneInvalid": "Format international requis (ex : {dial}791234567)"
     }
-  }
-  ,
+  },
+  "auth": {
+    "signIn": "Se connecter",
+    "signUp": "Créer un compte",
+    "loginTitle": "Bon retour.",
+    "loginDescription": "Retrouvez vos commandes et vos adresses.",
+    "signUpTitle": "Rejoindre Shoply.",
+    "signUpDescription": "Un compte pour commander et suivre vos lampes.",
+    "panelTitle": "Chaque lampe est testée à la main avant de partir.",
+    "panelText": "150 à 1 200 lumens, recharge USB-C, garantie cinq ans.",
+    "email": "Email",
+    "password": "Mot de passe",
+    "showPassword": "Afficher le mot de passe",
+    "hidePassword": "Masquer le mot de passe",
+    "submit": "Se connecter",
+    "signingIn": "Connexion…",
+    "endTitle": "Pas encore de compte ?",
+    "endLinkText": "Créer un compte",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "firstNamePlaceholder": "Prénom",
+    "lastNamePlaceholder": "Nom",
+    "emailPlaceholder": "vous@exemple.ch",
+    "passwordPlaceholder": "••••••••",
+    "confirmPassword": "Confirmer le mot de passe",
+    "passwordStrengthLabel": "Robustesse",
+    "passwordStrength": {
+      "veryWeak": "Très faible",
+      "weak": "Faible",
+      "medium": "Moyenne",
+      "strong": "Forte",
+      "veryStrong": "Très forte"
+    },
+    "passwordCriteria": {
+      "length": "8 caractères",
+      "lowercase": "Une minuscule",
+      "uppercase": "Une majuscule",
+      "number": "Un chiffre",
+      "special": "Un caractère spécial"
+    },
+    "passwordMismatch": "Les mots de passe ne correspondent pas",
+    "createAccount": "Créer mon compte",
+    "creatingAccount": "Création…",
+    "signupEndTitle": "Déjà un compte ?",
+    "signupEndLinkText": "Se connecter",
+    "errorPasswordMismatch": "Les mots de passe ne correspondent pas",
+    "errorPasswordWeak": "Le mot de passe doit être plus robuste",
+    "errorMissingName": "Renseignez votre prénom et votre nom",
+    "successAccountCreated": "Compte créé, bienvenue !",
+    "errorSignup": "Impossible de créer le compte",
+    "errorGeneric": "Une erreur est survenue",
+    "loginSuccess": "Connexion réussie",
+    "loginError": "Email ou mot de passe incorrect"
+  },
   "account": {
-    "profileTitle": "Mon profil",
-    "profileSubtitle": "Gérez vos informations personnelles.",
-    "ordersTitle": "Mes commandes",
-    "ordersSubtitle": "Consultez l'historique de vos commandes.",
-    "settingsTitle": "Paramètres",
-    "settingsSubtitle": "Préférences de votre compte.",
+    "eyebrow": "Mon compte",
+    "greeting": "Bonjour {name}",
+    "memberSince": "Client depuis le {date}",
     "menu": {
       "profile": "Profil",
       "orders": "Commandes",
-      "settings": "Paramètres"
+      "settings": "Adresses"
     },
+    "profileTitle": "Profil",
+    "profileSubtitle": "Le nom utilisé pour vos commandes.",
     "profile": {
-      "name": "Nom",
+      "name": "Nom complet",
+      "email": "Email",
       "save": "Enregistrer",
-      "saved": "Profil mis à jour"
+      "saved": "Profil mis à jour",
+      "error": "La mise à jour a échoué"
     },
+    "nameMin": "Le nom doit contenir au moins 2 caractères",
+    "namePlaceholder": "Prénom et nom",
+    "ordersTitle": "Commandes",
+    "ordersSubtitle": "L'historique de vos achats.",
     "orders": {
       "table": {
-        "id": "Commande",
+        "id": "Référence",
         "date": "Date",
         "status": "Statut",
+        "items": "Articles",
         "total": "Total"
       },
-      "empty": "Vous n'avez pas encore de commandes.",
+      "itemsCount": "{count, plural, one {# article} other {# articles}}",
+      "empty": "Vous n'avez pas encore passé de commande.",
+      "emptyCta": "Découvrir les lampes",
+      "notFound": "Cette commande est introuvable.",
       "details": {
-        "title": "Détail de la commande",
+        "title": "Commande",
+        "placed": "Passée le {date}",
         "items": "Articles",
         "quantity": "Qté",
-        "price": "Prix",
-        "back": "Retour aux commandes"
+        "unit": "Prix unitaire",
+        "price": "Montant",
+        "subtotal": "Sous-total",
+        "shipping": "Livraison",
+        "total": "Total",
+        "address": "Adresse de livraison",
+        "back": "Toutes les commandes"
       }
     },
+    "status": {
+      "pending": "En attente",
+      "paid": "Payée",
+      "shipped": "Expédiée",
+      "delivered": "Livrée",
+      "cancelled": "Annulée"
+    },
+    "settingsTitle": "Adresses",
+    "settingsSubtitle": "Vos adresses de livraison enregistrées.",
     "addresses": {
-      "title": "Adresses",
+      "title": "Adresses enregistrées",
+      "empty": "Aucune adresse enregistrée pour l'instant.",
       "add": "Ajouter une adresse",
       "delete": "Supprimer",
+      "deleteLabel": "Supprimer l'adresse de {name}",
       "saved": "Adresse enregistrée",
       "removed": "Adresse supprimée",
+      "error": "L'opération a échoué",
       "form": {
         "fullName": "Nom complet",
         "line1": "Adresse",
         "line2": "Complément",
-        "city": "Ville",
-        "postalCode": "Code postal",
+        "city": "Localité",
+        "postalCode": "NPA",
         "country": "Pays",
         "phone": "Téléphone",
-        "save": "Enregistrer"
+        "save": "Enregistrer l'adresse"
       }
     }
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Une question sur une lampe ?",
+    "subtitle": "Choix d'un modèle, garantie, pièce de rechange : écrivez-nous, un humain vous répond sous 24 h.",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Envoyer le message",
+    "sending": "Envoi…",
+    "success": "Message envoyé ! Nous vous répondrons rapidement.",
+    "error": "Une erreur est survenue. Veuillez réessayer.",
+    "demo": "Démonstration : le message est validé côté serveur mais n'est envoyé à personne.",
+    "infoTitle": "Nous joindre",
+    "hours": "Du lundi au vendredi, 9 h – 18 h",
+    "place": "Atelier à Genève, Suisse",
+    "placeholder": {
+      "name": "Votre nom",
+      "email": "vous@exemple.ch",
+      "message": "Dites-nous tout…"
+    },
+    "errors": {
+      "nameMin": "Le nom doit contenir au moins 2 caractères",
+      "emailInvalid": "L'email est invalide",
+      "messageMin": "Le message doit contenir au moins 10 caractères"
+    }
+  },
+  "about": {
+    "eyebrow": "L'atelier",
+    "title": "Nous faisons des lampes qu'on ne jette pas.",
+    "lede": "Shoply est née d'une frustration simple : des lampes bon marché qui meurent au premier hiver.",
+    "p1": "Chaque modèle part d'un bloc d'aluminium ou de cuivre, usiné puis anodisé. Les LED sont choisies pour leur rendement, pas pour un chiffre sur la boîte.",
+    "p2": "Les batteries se remplacent, les joints aussi. Nous gardons des pièces détachées pour chaque lampe vendue, parce qu'une lampe réparée est la plus écologique qui soit.",
+    "p3": "Trois modèles seulement : c'est un choix. Mieux vaut trois lampes parfaitement réglées qu'un catalogue de cinquante.",
+    "principles": {
+      "durable": { "title": "Durable", "desc": "Aluminium 6061, cuivre C110, verre trempé." },
+      "repairable": { "title": "Réparable", "desc": "Batterie, joints et bouton remplaçables." },
+      "rechargeable": { "title": "Rechargeable", "desc": "USB-C sur toute la gamme, zéro pile jetable." }
+    },
+    "figures": {
+      "tested": "lampes testées à la main",
+      "warranty": "ans de garantie",
+      "parts": "pièces détachées disponibles"
+    }
+  },
+  "notFound": {
+    "eyebrow": "Erreur 404",
+    "title": "Même à 1 200 lumens, cette page reste introuvable.",
+    "text": "Le lien est peut-être cassé, ou la page a été déplacée.",
+    "cta": "Retour à l'accueil",
+    "products": "Voir les lampes"
   }
 }

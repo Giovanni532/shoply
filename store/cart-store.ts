@@ -4,6 +4,7 @@ import { persist, createJSONStorage } from "zustand/middleware";
 // Align with DB schema: product has id, name, priceCents, currency, images, etc.
 export type CartLine = {
     productId: string;
+    slug?: string; // pour le dessin de la lampe (absent des paniers enregistrés avant la refonte)
     name: string; // snapshot of product name
     unitPriceCents: number; // snapshot price in cents
     currency: string; // e.g. CHF
@@ -31,7 +32,7 @@ function clampQuantity(quantity: number): number {
 
 export const useCartStore = create<CartState & CartActions>()(
     persist(
-        (set, get) => ({
+        (set) => ({
             lines: [],
             currency: "CHF",
 
@@ -47,6 +48,7 @@ export const useCartStore = create<CartState & CartActions>()(
                                 ...state.lines,
                                 {
                                     productId: line.productId,
+                                    slug: line.slug,
                                     name: line.name,
                                     unitPriceCents: line.unitPriceCents,
                                     currency: line.currency || state.currency,
@@ -64,6 +66,7 @@ export const useCartStore = create<CartState & CartActions>()(
                         unitPriceCents: line.unitPriceCents ?? updated[index].unitPriceCents,
                         currency: line.currency || updated[index].currency,
                         imageUrl: line.imageUrl ?? updated[index].imageUrl,
+                        slug: line.slug ?? updated[index].slug,
                     };
                     return { ...state, lines: updated };
                 });
@@ -103,9 +106,7 @@ export const useCartStore = create<CartState & CartActions>()(
             storage: createJSONStorage(() => localStorage),
             partialize: (state) => ({ lines: state.lines, currency: state.currency }),
             version: 1,
-            migrate: (persistedState: any, version) => {
-                return persistedState;
-            },
+            migrate: (persistedState: any) => persistedState,
         }
     )
 );

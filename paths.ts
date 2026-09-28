@@ -7,7 +7,7 @@ export const paths = {
     // Produits
     products: {
         list: "/products", // page liste des produits
-        details: (id: string) => `/products/${id}`, // page détail produit
+        details: (slug: string) => `/products/${slug}`, // fiche produit (par slug)
     },
 
     // Panier & Paiement
